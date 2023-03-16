@@ -58,8 +58,6 @@ if (precioBase != 0){
 }
 
 if (precioBase && plan){
-    calculaCuotaPura(precioBase, plan);
-    console.log(cuotaPura);
     for (i=0; i<plan; i++){
         calculaCuotaPura(precioBase, plan);
         console.log(`Cuota ${i+1}: ${cuotaPura.toFixed(2)}`);
