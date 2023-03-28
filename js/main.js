@@ -1,66 +1,208 @@
-let plan = 0;
-let precioBase = 0;
-let incrementoMensual = 0.05;
-let cuotaPura = 0;
-let gastosGestion = 10000;
-
-function calculaCuotaPura(precioBase, plan) {
-    cuotaPura = precioBase/plan;
-}
-
-function calculaIncremento(precioBase, incrementoMensual){
-    let nuevoPrecioBase = precioBase * (1 + incrementoMensual);
-    return nuevoPrecioBase;
-}
-
-let opcionAuto;
-do {
-    opcionAuto = parseInt(prompt('Elija vehículo:\n1) Toyota Etios\n2) Toyota Yaris\n3) Toyota Corolla\n4) SALIR'));
-    if (opcionAuto == 4)
-        break;
-    else
-        switch (opcionAuto){
-            case 1:
-                precioBase = 3775000;
-                break;
-            case 2: 
-                precioBase = 4703000;
-                break;
-            case 3:
-                precioBase = 5917000;
-                break;
-            default:
-                alert('Opción incorrecta.');
-        }
-    console.log('Precio base = ', precioBase);
-} while (precioBase == 0);
-
-if (precioBase != 0){
-    let opcionPlan;
-    do {
-        opcionPlan = parseInt(prompt('Elija Plan:\n1) 84 cuotas\n2) 120 cuotas\n3) SALIR'));
-        if (opcionPlan == 3)
-            break;
-        else
-            switch (opcionPlan){
-                case 1:
-                    plan = 84;
-                    calculaCuotaPura(precioBase, plan);
-                    break;
-                case 2:
-                    plan = 120; 
-                    break;
-                default:
-                    alert('Opción incorrecta.');
-            }
-        console.log('Plan seleccionado: ', plan);
-    } while (plan == 0);
-}
-
-if (precioBase && plan){
-    for (i=0; i<plan; i++){
-        calculaCuotaPura(precioBase, plan);
-        console.log(`Cuota ${i+1}: ${cuotaPura.toFixed(2)}`);
-        precioBase = precioBase * (1 + incrementoMensual);
+let diccionario = {
+  a: [
+    {
+      pista: "Comienza con A",
+      palabra: "abrevadero",
+      definicion: "Estanque, pilón o paraje del río, arroyo o manantial a propósito para dar de beber al ganado."
+    },
+    {
+      pista: "",
+      palabra: "",
+      definicion: ""
+    },
+  ],
+  b: [
+    {
+      pista: "Comienza con B",
+      palabra: "banalidad",
+      definicion: "Cualidad de banal."
     }
-}
+  ],
+  c: [
+    {
+      pista: "Comienza con C",
+      palabra: "carcajada",
+      definicion: "Risa impetuosa y ruidosa."
+    }
+  ],
+  d: [
+    {
+      pista: "Comienza con D",
+      palabra: "duna",
+      definicion: "Colina de arena movediza que en los desiertos y en las playas forma y empuja el viento."
+    }
+  ],
+  // e: [
+  //   {
+  //     pista: "",
+  //     palabra: "",
+  //     definicion: ""
+  //   }
+  // ],
+  // f: [
+  //   {
+  //     pista: "Comienza con ",
+  //     palabra: "",
+  //     definicion: ""
+  //   }
+  // ],
+  // g: [
+  //   {
+  //     pista: "Comienza con ",
+  //     palabra: "",
+  //     definicion: ""
+  //   }
+  // ],
+  // h: [
+  //   {
+  //     pista: "Comienza con ",
+  //     palabra: "",
+  //     definicion: ""
+  //   }
+  // ],
+  // i: [
+  //   {
+  //     pista: "Comienza con ",
+  //     palabra: "",
+  //     definicion: ""
+  //   }
+  // ],
+  // j: [
+  //   {
+  //     pista: "",
+  //     palabra: "",
+  //     definicion: ""
+  //   }
+  // ],
+  // k: [
+  //   {
+  //     pista: "",
+  //     palabra: "",
+  //     definicion: ""
+  //   }
+  // ],
+  // l: [
+  //   {
+  //     pista: "",
+  //     palabra: "",
+  //     definicion: ""
+  //   }
+  // ],
+  // m: [
+  //   {
+  //     pista: "",
+  //     palabra: "",
+  //     definicion: ""
+  //   }
+  // ],
+  // n: [
+  //   {
+  //     pista: "",
+  //     palabra: "",
+  //     definicion: ""
+  //   }
+  // ],
+  // ñ: [
+  //   {
+  //     pista: "",
+  //     palabra: "",
+  //     definicion: ""
+  //   }
+  // ],
+  // o: [
+  //   {
+  //     pista: "",
+  //     palabra: "",
+  //     definicion: ""
+  //   }
+  // ],
+  // p: [
+  //   {
+  //     pista: "",
+  //     palabra: "",
+  //     definicion: ""
+  //   }
+  // ],
+  // q: [
+  //   {
+  //     pista: "",
+  //     palabra: "",
+  //     definicion: ""
+  //   }
+  // ],
+  // r: [
+  //   {
+  //     pista: "",
+  //     palabra: "",
+  //     definicion: ""
+  //   }
+  // ],
+  // s: [
+  //   {
+  //     pista: "",
+  //     palabra: "",
+  //     definicion: ""
+  //   }
+  // ],
+  // t: [
+  //   {
+  //     pista: "",
+  //     palabra: "",
+  //     definicion: ""
+  //   }
+  // ],
+  // u: [
+  //   {
+  //     pista: "",
+  //     palabra: "",
+  //     definicion: ""
+  //   }
+  // ],
+  // v: [
+  //   {
+  //     pista: "",
+  //     palabra: "",
+  //     definicion: ""
+  //   }
+  // ],
+  // x: [
+  //   {
+  //     pista: "",
+  //     palabra: "",
+  //     definicion: ""
+  //   }
+  // ],
+  // y: [
+  //   {
+  //     pista: "",
+  //     palabra: "",
+  //     definicion: ""
+  //   }
+  // ],
+  // z: [
+  //   {
+  //     pista: "",
+  //     palabra: "",
+  //     definicion: ""
+  //   }
+  // ],
+};
+
+let estatus = {
+  correctas: 0,
+  incorrectas: 0
+};
+
+for (const letra in diccionario){
+  respuesta = prompt(`ADIVINA: ${diccionario[letra][0].pista}\n\n${diccionario[letra][0].definicion}`);
+  if(respuesta.toLowerCase() == diccionario[letra][0].palabra){
+    alert("CORRECTO!");
+    estatus.correctas++;
+  }
+  else{
+    alert("INCORRECTO!");
+    estatus.incorrectas++;
+  }
+};
+
+alert(`Resultado del juego:\nCORRECTAS: ${estatus.correctas}\nINCORRECTAS: ${estatus.incorrectas}`);
