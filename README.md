@@ -2,5 +2,4 @@
 # SALTAPALABRA
 
 ## Descripción del proyecto
-Se trata de un juego interactivo en el que el participante deberá acertar la mayor cantidad de palabras en un tiempo determinado.
-
+Se trata de un juego interactivo donde el participante deberá acertar la mayor cantidad de palabras en un tiempo determinado.
