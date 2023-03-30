@@ -1,20 +1,3 @@
-
-class Diccionario{
-  constructor(palabrasArray){
-    this.palabrasArray = palabrasArray;
-  }
-
-  getSet(){
-    let set = [];
-    for(const letra in this.palabrasArray){
-      // toma el primer elemento del array de cada letra. En el futuro deberá tomar elementos aleatorios.
-      set[letra] = this.palabrasArray[letra][0];
-    }
-    // console.log(set);
-    return set;
-  }
-}
-
 let palabrasData = {
   a: [
     {
@@ -205,35 +188,31 @@ let palabrasData = {
   // ],
 };
 
-// let status = {
-//   correctas: 0,
-//   incorrectas: 0
-// };
+class Diccionario{
+  constructor(palabrasArray){
+    this.palabrasArray = palabrasArray;
+  }
 
-// for (const letra in diccionario){
-//   respuesta = prompt(`ADIVINA: ${diccionario[letra][0].pista}\n\n${diccionario[letra][0].definicion}`);
-//   if(respuesta.toLowerCase() == diccionario[letra][0].palabra){
-//     alert("CORRECTO!");
-//     status.correctas++;
-//   }
-//   else{
-//     alert("INCORRECTO!");
-//     status.incorrectas++;
-//   }
-// };
-
-// alert(`Resultado del juego:\nCORRECTAS: ${status.correctas}\nINCORRECTAS: ${status.incorrectas}`);
-
-
+  getSet(){
+    let set = [];
+    for(const letra in this.palabrasArray){
+      // toma el primer elemento del array de cada letra. En el futuro deberá tomar elementos aleatorios.
+      set[letra] = this.palabrasArray[letra][0];
+    }
+    // console.log(set);
+    return set;
+  }
+}
 
 class Rosco{
   constructor(setPalabras){
     this.setPalabras = setPalabras;
   }
-
+  
   render(){
     let divRosco = document.getElementById("rosco");
     let rosco = "";
+    // agrega círculos al rosco por cada letra del set de palabras.
     for(const letra in this.setPalabras){
       rosco += `<button id="circulo-${letra}" type="button" disabled class="text-white bg-gradient-to-r from-blue-500 via-blue-600 to-blue-700 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:ring-blue-800 shadow-lg shadow-neutral-500/50 dark:shadow-lg dark:shadow-neutral-800/80 font-semibold rounded-full text-lg px-4 py-2 text-center mr-2 mb-2 ">${letra.toUpperCase()}</button>`;
     }
@@ -242,6 +221,28 @@ class Rosco{
     divRosco.innerHTML = rosco;
     // console.log(divRosco)
   }
+
+  setStatusRespuestas(Correctas, Incorrectas, sinContestar){
+  
+  };
+
+  getStatusRespuestas(){
+    let status = {
+      correctas: 0,
+      incorrectas: 0
+    };
+  }
+
+  setVerde(letra){
+    console.log("setVerde...");
+    document.getElementById(`circulo-${letra}`).className = "text-white bg-gradient-to-r from-green-500 via-green-600 to-green-700 focus:ring-4 focus:outline-none focus:ring-green-300 dark:ring-blue-800 shadow-lg shadow-neutral-500/50 dark:shadow-lg dark:shadow-neutral-800/80 font-semibold rounded-full text-lg px-4 py-2 text-center mr-2 mb-2 ";
+  };
+
+  setRojo(letra){
+    console.log("setVerde...");
+    document.getElementById(`circulo-${letra}`).className = "text-white bg-gradient-to-r from-red-500 via-red-600 to-red-700 focus:ring-4 focus:outline-none focus:ring-red-300 dark:ring-blue-800 shadow-lg shadow-neutral-500/50 dark:shadow-lg dark:shadow-neutral-800/80 font-semibold rounded-full text-lg px-4 py-2 text-center mr-2 mb-2 ";
+  };
+
 };
 
 const diccionario1 = new Diccionario(palabrasData);
@@ -249,3 +250,27 @@ let set1 = diccionario1.getSet();
 
 const rosco1 = new Rosco(set1);
 rosco1.render();
+
+let estado = {
+  correctas: 0,
+  incorrectas: 0
+};
+
+
+
+for(const letra in set1){
+  respuesta = prompt(`ADIVINA: ${set1[letra].pista}\n\n${set1[letra].definicion}`);
+  if(respuesta.toLowerCase() == set1[letra].palabra){
+    alert("CORRECTO!");
+    estado.correctas++;
+    rosco1.setVerde(letra);
+  }
+  else{
+    alert("INCORRECTO!");
+    estado.incorrectas++;
+    rosco1.setRojo(letra);
+  }
+
+}
+
+alert(`Resultado del juego:\nCORRECTAS: ${estado.correctas}\nINCORRECTAS: ${estado.incorrectas}`);
