@@ -260,7 +260,7 @@ let estado1 = {
 
 // comienzo del juego
 for(const letra in set1){
-  respuesta = prompt(`ADIVINA: ${set1[letra].pista}\n\n${set1[letra].definicion}`);
+  let respuesta = prompt(`ADIVINA: ${set1[letra].pista}\n\n${set1[letra].definicion}`);
   if(respuesta.toLowerCase() == set1[letra].palabra){
     alert("CORRECTO!");
     estado1.correctas++;
