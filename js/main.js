@@ -5,8 +5,13 @@ class Diccionario{
   }
 
   getSet(){
-    // console.log(this.palabrasArray);
-    return this.palabrasArray;
+    let set = [];
+    for(const letra in this.palabrasArray){
+      // toma el primer elemento del array de cada letra. En el futuro deberá tomar elementos aleatorios.
+      set[letra] = this.palabrasArray[letra][0];
+    }
+    // console.log(set);
+    return set;
   }
 }
 
@@ -228,8 +233,14 @@ class Rosco{
 
   render(){
     let divRosco = document.getElementById("rosco");
-    console.log(divRosco);
-
+    let rosco = "";
+    for(const letra in this.setPalabras){
+      rosco += `<button id="circulo-${letra}" type="button" disabled class="text-white bg-gradient-to-r from-blue-500 via-blue-600 to-blue-700 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:ring-blue-800 shadow-lg shadow-neutral-500/50 dark:shadow-lg dark:shadow-neutral-800/80 font-semibold rounded-full text-lg px-4 py-2 text-center mr-2 mb-2 ">${letra.toUpperCase()}</button>`;
+    }
+    // console.log(this.setPalabras)
+    // console.log(rosco);
+    divRosco.innerHTML = rosco;
+    // console.log(divRosco)
   }
 };
 
