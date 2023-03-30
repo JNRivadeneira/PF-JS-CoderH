@@ -1,3 +1,4 @@
+// Data
 let palabrasData = {
   a: [
     {
@@ -188,6 +189,7 @@ let palabrasData = {
   // ],
 };
 
+// Clases
 class Diccionario{
   constructor(palabrasArray){
     this.palabrasArray = palabrasArray;
@@ -234,43 +236,41 @@ class Rosco{
   }
 
   setVerde(letra){
-    console.log("setVerde...");
     document.getElementById(`circulo-${letra}`).className = "text-white bg-gradient-to-r from-green-500 via-green-600 to-green-700 focus:ring-4 focus:outline-none focus:ring-green-300 dark:ring-blue-800 shadow-lg shadow-neutral-500/50 dark:shadow-lg dark:shadow-neutral-800/80 font-semibold rounded-full text-lg px-4 py-2 text-center mr-2 mb-2 ";
   };
 
   setRojo(letra){
-    console.log("setVerde...");
     document.getElementById(`circulo-${letra}`).className = "text-white bg-gradient-to-r from-red-500 via-red-600 to-red-700 focus:ring-4 focus:outline-none focus:ring-red-300 dark:ring-blue-800 shadow-lg shadow-neutral-500/50 dark:shadow-lg dark:shadow-neutral-800/80 font-semibold rounded-full text-lg px-4 py-2 text-center mr-2 mb-2 ";
   };
 
 };
 
+// creacion de la partida
 const diccionario1 = new Diccionario(palabrasData);
 let set1 = diccionario1.getSet();
 
 const rosco1 = new Rosco(set1);
 rosco1.render();
 
-let estado = {
+let estado1 = {
   correctas: 0,
   incorrectas: 0
 };
 
 
-
+// comienzo del juego
 for(const letra in set1){
   respuesta = prompt(`ADIVINA: ${set1[letra].pista}\n\n${set1[letra].definicion}`);
   if(respuesta.toLowerCase() == set1[letra].palabra){
     alert("CORRECTO!");
-    estado.correctas++;
+    estado1.correctas++;
     rosco1.setVerde(letra);
   }
   else{
     alert("INCORRECTO!");
-    estado.incorrectas++;
+    estado1.incorrectas++;
     rosco1.setRojo(letra);
   }
+};
 
-}
-
-alert(`Resultado del juego:\nCORRECTAS: ${estado.correctas}\nINCORRECTAS: ${estado.incorrectas}`);
+alert(`Resultado del juego:\nCORRECTAS: ${estado1.correctas}\nINCORRECTAS: ${estado1.incorrectas}`);
