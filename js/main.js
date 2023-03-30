@@ -1,4 +1,16 @@
-let diccionario = {
+
+class Diccionario{
+  constructor(palabrasArray){
+    this.palabrasArray = palabrasArray;
+  }
+
+  getSet(){
+    // console.log(this.palabrasArray);
+    return this.palabrasArray;
+  }
+}
+
+let palabrasData = {
   a: [
     {
       pista: "Comienza con A",
@@ -188,21 +200,41 @@ let diccionario = {
   // ],
 };
 
-let estatus = {
-  correctas: 0,
-  incorrectas: 0
+// let status = {
+//   correctas: 0,
+//   incorrectas: 0
+// };
+
+// for (const letra in diccionario){
+//   respuesta = prompt(`ADIVINA: ${diccionario[letra][0].pista}\n\n${diccionario[letra][0].definicion}`);
+//   if(respuesta.toLowerCase() == diccionario[letra][0].palabra){
+//     alert("CORRECTO!");
+//     status.correctas++;
+//   }
+//   else{
+//     alert("INCORRECTO!");
+//     status.incorrectas++;
+//   }
+// };
+
+// alert(`Resultado del juego:\nCORRECTAS: ${status.correctas}\nINCORRECTAS: ${status.incorrectas}`);
+
+
+
+class Rosco{
+  constructor(setPalabras){
+    this.setPalabras = setPalabras;
+  }
+
+  render(){
+    let divRosco = document.getElementById("rosco");
+    console.log(divRosco);
+
+  }
 };
 
-for (const letra in diccionario){
-  respuesta = prompt(`ADIVINA: ${diccionario[letra][0].pista}\n\n${diccionario[letra][0].definicion}`);
-  if(respuesta.toLowerCase() == diccionario[letra][0].palabra){
-    alert("CORRECTO!");
-    estatus.correctas++;
-  }
-  else{
-    alert("INCORRECTO!");
-    estatus.incorrectas++;
-  }
-};
+const diccionario1 = new Diccionario(palabrasData);
+let set1 = diccionario1.getSet();
 
-alert(`Resultado del juego:\nCORRECTAS: ${estatus.correctas}\nINCORRECTAS: ${estatus.incorrectas}`);
+const rosco1 = new Rosco(set1);
+rosco1.render();
