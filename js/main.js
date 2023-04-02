@@ -18,7 +18,7 @@ let palabrasData = {
     },
     {
       pista: "Comienza con A",
-      palabra: ["anabólico"],
+      palabra: ["anabólico", "anabólica"],
       definicion: "Perteneciente o relativo al anabolismo."
     },
   ],
@@ -52,7 +52,7 @@ let palabrasData = {
     },
     {
       pista: "Comienza con C",
-      palabra: ["criollo"],
+      palabra: ["criollo", "criolla"],
       definicion: "Autóctono o propio de un país hispanoamericano, o del conjunto de ellos."
     },
     {
@@ -90,13 +90,28 @@ let palabrasData = {
     },
     
   ],
-  // e: [
-  //   {
-  //     pista: "",
-  //     palabra: "",
-  //     definicion: ""
-  //   }
-  // ],
+  e: [
+    {
+      pista: "Comienza con E",
+      palabra: ["encabar"],
+      definicion: "Poner cabo o mango a una herramienta."
+    },
+    {
+      pista: "Comienza con E",
+      palabra: ["enjuague"],
+      definicion: "Acción de enjuagar."
+    },
+    {
+      pista: "Comienza con E",
+      palabra: ["estilete"],
+      definicion: "Puñal de hoja muy estrecha y aguda."
+    },
+    {
+      pista: "Comienza con E",
+      palabra: ["estación"],
+      definicion: "Cada una de las cuatro partes o tiempos en que se divide el año."
+    },
+  ],
   // f: [
   //   {
   //     pista: "Comienza con ",
@@ -254,7 +269,6 @@ class Diccionario{
 
   getSet(){
     let set = [];
-    console.log(this.palabrasArray["a"].length);
     for(const letra in this.palabrasArray){
       // toma elementos aleatorios.
       set[letra] = this.palabrasArray[letra][parseInt(Math.random()*this.palabrasArray[letra].length)];
@@ -325,7 +339,7 @@ for(const letra in set1){
     rosco1.setVerde(letra);
   }
   else{
-    alert("INCORRECTO!");
+    alert(`INCORRECTO!\nLa respuesta es: ${set1[letra].palabra}`);
     estado1.incorrectas++;
     rosco1.setRojo(letra);
   }
