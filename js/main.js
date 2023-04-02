@@ -70,14 +70,14 @@ let marcador1 = {
 
 // comienzo del juego
 for(const letra in set1){
-  let respuesta = prompt(`ADIVINA: ${set1[letra].pista}\n\n${set1[letra].definicion}`);
+  let respuesta = prompt(`❔\n\n${set1[letra].pista}\n\n${set1[letra].definicion}`);
   if(set1[letra].palabra.includes(respuesta.toLowerCase())){
     alert("🥳 CORRECTO!");
     marcador1.correctas++;
     rosco1.setVerde(letra);
   }
   else{
-    alert(`❌ INCORRECTO!\nLa respuesta correcta es:       ${set1[letra].palabra}`);
+    alert(`❌ INCORRECTO!\n\nLa respuesta correcta es:       ${set1[letra].palabra.join(" / ")}`);
     marcador1.incorrectas++; 
     rosco1.setRojo(letra);
   }
