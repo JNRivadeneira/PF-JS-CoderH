@@ -254,9 +254,10 @@ class Diccionario{
 
   getSet(){
     let set = [];
+    console.log(this.palabrasArray["a"].length);
     for(const letra in this.palabrasArray){
-      // toma el primer elemento del array de cada letra. En el futuro deberá tomar elementos aleatorios.
-      set[letra] = this.palabrasArray[letra][0];
+      // toma elementos aleatorios.
+      set[letra] = this.palabrasArray[letra][parseInt(Math.random()*this.palabrasArray[letra].length)];
     }
     // console.log(set);
     return set;
