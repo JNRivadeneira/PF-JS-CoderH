@@ -441,46 +441,136 @@ let palabrasData = {
       definicion: "Ninfa marina con busto de mujer y cuerpo de ave según la tradición grecolatina, y con cuerpo de pez en otras tradiciones, que extraviaba a los navegantes atrayéndolos con la dulzura de su canto."
     },
   ],
-  // t: [
-  //   {
-  //     pista: "",
-  //     palabra: "",
-  //     definicion: ""
-  //   }
-  // ],
-  // u: [
-  //   {
-  //     pista: "",
-  //     palabra: "",
-  //     definicion: ""
-  //   }
-  // ],
-  // v: [
-  //   {
-  //     pista: "",
-  //     palabra: "",
-  //     definicion: ""
-  //   }
-  // ],
-  // x: [
-  //   {
-  //     pista: "",
-  //     palabra: "",
-  //     definicion: ""
-  //   }
-  // ],
-  // y: [
-  //   {
-  //     pista: "",
-  //     palabra: "",
-  //     definicion: ""
-  //   }
-  // ],
-  // z: [
-  //   {
-  //     pista: "",
-  //     palabra: "",
-  //     definicion: ""
-  //   }
-  // ],
+  t: [
+    {
+      pista: "Comienza con T",
+      palabra: ["trote"],
+      definicion: "Modo de caminar acelerado, natural a todas las caballerías, que consiste en avanzar saltando, con apoyo alterno en cada bípedo diagonal, es decir, en cada conjunto de mano y pie contrapuestos."
+    },
+    {
+      pista: "Comienza con T",
+      palabra: ["tirano", "tirana"],
+      definicion: "Dicho de una persona: Que obtiene contra derecho el gobierno de un Estado, especialmente si lo rige sin justicia y a medida de su voluntad."
+    },
+    {
+      pista: "Comienza con T",
+      palabra: ["todólogo", "todóloga"],
+      definicion: "Persona que cree saber y dominar varias especialidades."
+    },
+    {
+      pista: "Comienza con T",
+      palabra: ["terrario"],
+      definicion: "Instalación adecuada para mantener vivos y en las mejores condiciones a ciertos animales, como reptiles, anfibios, etc."
+    },
+  ],
+  u: [
+    {
+      pista: "Comienza con U",
+      palabra: ["upa"],
+      definicion: "interjección utilizada para esforzar a levantar algún peso o a levantarse. Se dice especialmente a los niños."
+    },
+    {
+      pista: "Comienza con U",
+      palabra: ["último"],
+      definicion: "Que está al final de una línea, de una serie o de una sucesión."
+    },
+    {
+      pista: "Comienza con U",
+      palabra: ["ufanarse"],
+      definicion: "Engreírse, jactarse, gloriarse."
+    },
+    {
+      pista: "Comienza con U",
+      palabra: ["ubicuo", "ubicua"],
+      definicion: "Dicho principalmente de Dios: Que está presente a un mismo tiempo en todas partes."
+    },
+  ],
+  v: [
+    {
+      pista: "Comienza con V",
+      palabra: ["verter"],
+      definicion: "Derramar o vaciar líquidos, y también cosas menudas, como sal, harina, etc."
+    },
+    {
+      pista: "Comienza con V",
+      palabra: ["vocabulario"],
+      definicion: "Conjunto de palabras de un idioma."
+    },
+    {
+      pista: "Comienza con V",
+      palabra: ["vendetta"],
+      definicion: "Venganza derivada de rencillas entre familias, clanes o grupos rivales."
+    },
+    {
+      pista: "Comienza con V",
+      palabra: ["volátil"],
+      definicion: "Dicho de un líquido: Que se transforma espontáneamente en vapor."
+    },
+  ],
+  x: [
+    {
+      pista: "Comienza con X",
+      palabra: ["xenofilia"],
+      definicion: "Simpatía hacia lo extranjero o los extranjeros."
+    },
+    {
+      pista: "Comienza con X",
+      palabra: ["xilófago", "xilófaga"],
+      definicion: "Dicho de un insecto: Que roe la madera."
+    },
+    {
+      pista: "Contiene X",
+      palabra: ["flexible"],
+      definicion: "Que tiene disposición para doblarse fácilmente."
+    },
+    {
+      pista: "Contiene X",
+      palabra: ["exterminio"],
+      definicion: "Acción y efecto de exterminar."
+    },
+  ],
+  y: [
+    {
+      pista: "Comienza con Y",
+      palabra: ["yoyó", "yoyo"],
+      definicion: "Juguete de origen chino que consiste en dos discos pequeños unidos por un eje en torno al cual se ata y enrolla una cuerda por la que se lo hace subir y bajar de manera sucesiva a impulsos de la mano."
+    },
+    {
+      pista: "Comienza con Y",
+      palabra: ["yoga"],
+      definicion: "Conjunto de disciplinas físico-mentales originales de la India, destinadas a conseguir la perfección espiritual y la unión con lo absoluto."
+    },
+    {
+      pista: "Contiene Y",
+      palabra: ["peyorativo"],
+      definicion: "Dicho de una palabra o de un modo de expresión: Que indica una idea desfavorable."
+    },
+    {
+      pista: "Contiene Y",
+      palabra: ["coyote", "coyota"],
+      definicion: "Mamífero carnívoro de Norteamérica, semejante al lobo pero más pequeño y de pelaje gris amarillento."
+    },
+  ],
+  z: [
+    {
+      pista: "Comienza con Z",
+      palabra: ["zapato"],
+      definicion: "Calzado que no pasa del tobillo, con la parte inferior de suela y lo demás de piel, fieltro, paño u otro tejido, más o menos escotado por el empeine."
+    },
+    {
+      pista: "Comienza con Z",
+      palabra: ["zoilo"],
+      definicion: "Crítico presumido y maligno censurador o murmurador de las obras ajenas."
+    },
+    {
+      pista: "Contiene Z",
+      palabra: ["arroz"],
+      definicion: "Planta anual propia de terrenos muy húmedos, cuyo fruto es un grano oval rico en almidón."
+    },
+    {
+      pista: "Contiene Z",
+      palabra: ["vergüenza"],
+      definicion: "Turbación del ánimo ocasionada por la conciencia de alguna falta cometida, o por alguna acción deshonrosa y humillante."
+    },
+  ],
 };
