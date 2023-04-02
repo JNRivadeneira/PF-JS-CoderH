@@ -3,35 +3,92 @@ let palabrasData = {
   a: [
     {
       pista: "Comienza con A",
-      palabra: "abrevadero",
+      palabra: ["abrevadero"],
       definicion: "Estanque, pilón o paraje del río, arroyo o manantial a propósito para dar de beber al ganado."
     },
     {
-      pista: "",
-      palabra: "",
-      definicion: ""
+      pista: "Comienza con A",
+      palabra: ["astucia"],
+      definicion: "Cualidad de astuto."
+    },
+    {
+      pista: "Comienza con A",
+      palabra: ["alambre"],
+      definicion: "Hilo de cualquier metal, obtenido por trefilado."
+    },
+    {
+      pista: "Comienza con A",
+      palabra: ["anabólico"],
+      definicion: "Perteneciente o relativo al anabolismo."
     },
   ],
   b: [
     {
       pista: "Comienza con B",
-      palabra: "banalidad",
+      palabra: ["banalidad"],
       definicion: "Cualidad de banal."
-    }
+    },
+    {
+      pista: "Comienza con B",
+      palabra: ["binario"],
+      definicion: "Compuesto de dos elementos, unidades o guarismos."
+    },
+    {
+      pista: "Comienza con B",
+      palabra: ["boicot"],
+      definicion: "Acción que se dirige contra una persona o entidad para obstaculizar el desarrollo o funcionamiento de una determinada actividad social o comercial."
+    },
+    {
+      pista: "Comienza con B",
+      palabra: ["butaca"],
+      definicion: "Asiento con brazos y respaldo, semejante a un sillón pero generalmente menos voluminoso."
+    },
   ],
   c: [
     {
       pista: "Comienza con C",
-      palabra: "carcajada",
+      palabra: ["carcajada"],
       definicion: "Risa impetuosa y ruidosa."
-    }
+    },
+    {
+      pista: "Comienza con C",
+      palabra: ["criollo"],
+      definicion: "Autóctono o propio de un país hispanoamericano, o del conjunto de ellos."
+    },
+    {
+      pista: "Comienza con C",
+      palabra: ["carbonilla"],
+      definicion: "Carbón mineral menudo que, como residuo, suele quedar al mover y trasladar el grueso."
+    },
+    {
+      pista: "Comienza con C",
+      palabra: ["cuaco"],
+      definicion: "Harina de la raíz de la yuca."
+    },
+    
   ],
   d: [
     {
       pista: "Comienza con D",
-      palabra: "duna",
+      palabra: ["duna"],
       definicion: "Colina de arena movediza que en los desiertos y en las playas forma y empuja el viento."
-    }
+    },
+    {
+      pista: "Comienza con D",
+      palabra: ["dromedario"],
+      definicion: "Artiodáctilo rumiante, propio de Arabia y del norte de África, muy semejante al camello, del cual se distingue principalmente por no tener más que una giba adiposa en el dorso."
+    },
+    {
+      pista: "Comienza con D",
+      palabra: ["dinosaurio"],
+      definicion: "Reptil fósil, propio del Mesozoico, generalmente de gran tamaño, cabeza pequeña, cuello largo, cola robusta y larga, y extremidades posteriores más largas que las anteriores."
+    },
+    {
+      pista: "Comienza con D",
+      palabra: ["docenario", "docenaria"],
+      definicion: "Que consta de doce unidades o elementos constitutivos."
+    },
+    
   ],
   // e: [
   //   {
@@ -261,7 +318,7 @@ let estado1 = {
 // comienzo del juego
 for(const letra in set1){
   let respuesta = prompt(`ADIVINA: ${set1[letra].pista}\n\n${set1[letra].definicion}`);
-  if(respuesta.toLowerCase() == set1[letra].palabra){
+  if(set1[letra].palabra.includes(respuesta.toLowerCase())){
     alert("CORRECTO!");
     estado1.correctas++;
     rosco1.setVerde(letra);
