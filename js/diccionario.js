@@ -525,7 +525,7 @@ let palabrasData = {
     },
     {
       pista: "Contiene X",
-      palabra: ["exterminio"],
+      palabra: ["exterminio", "exterminación"],
       definicion: "Acción y efecto de exterminar."
     },
   ],
