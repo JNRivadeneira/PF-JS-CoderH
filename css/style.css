@@ -1,17 +1,36 @@
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+html{
+    height: auto;
+    min-height: 100%;
+    min-width: 900px;
 }
+body {
+    /* background-image: linear-gradient(to right, rgba(255,0,0,0), rgba(255,0,0,1)); */
+    /* align-items: center;
+    justify-content: center; */
+    color: blanchedalmond;
+    position: relative;
+    background: radial-gradient(circle, #0d47a1, #42a5f5);
+    background-image: url("https://www.toptal.com/designers/subtlepatterns/uploads/blue-snow.png");
+    /* background-image: url("../img/patron-background.jpg");
+    background-size: auto; */
+}   
 
-/* .container {
+.container {
     display: flex;
     align-items: center;
     justify-content: center;
-    height: 100vh;
-    background-image: linear-gradient(to right, rgba(255,0,0,0), rgba(255,0,0,1));
-} */
+    /* width: fit-content; */
+    min-width: 900px;
+    margin: auto;
+    
 
-.rosco {
-    display: flex;
 }
+
+#rosco {
+    position: relative;
+    align-items: center;
+    justify-content: center;
+    margin: auto;
+    /* width: 50%; */
+}
+
