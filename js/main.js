@@ -100,7 +100,7 @@ let marcador1 = {
 };
 
 
-// comienzo del juego
+/*// comienzo del juego
 for(const letra in set1){
   let respuesta = prompt(`❔\n\n${set1[letra].pista}\n\n${set1[letra].definicion}`);
   if(set1[letra].palabra.includes(respuesta.toLowerCase())){
@@ -115,4 +115,23 @@ for(const letra in set1){
   }
 };
 
-alert(`Resultado del juego:\nCORRECTAS: ${marcador1.correctas}\nINCORRECTAS: ${marcador1.incorrectas}`);
+alert(`Resultado del juego:\nCORRECTAS: ${marcador1.correctas}\nINCORRECTAS: ${marcador1.incorrectas}`);*/
+
+// Comienzo del juego
+
+function start(){
+  let parrafoPista = document.getElementById("parrafo-pista");
+  let parrafoDefinicion = document.getElementById("parrafo-definicion");
+  let inputRespuesta = document.getElementById("input-respuesta");
+  for (const letra in set1) {
+    parrafoPista.innerText = set1[letra].pista;
+    parrafoDefinicion.innerText = set1[letra].definicion;
+    if (set1[letra].palabra.includes(inputRespuesta.value.toLowerCase())){
+      alert("🥳 CORRECTO!");
+      marcador1.correctas++;
+      rosco1.setVerde(letra);
+    }
+  }
+}
+
+start();

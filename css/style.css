@@ -7,7 +7,7 @@ body {
     /* background-image: linear-gradient(to right, rgba(255,0,0,0), rgba(255,0,0,1)); */
     /* align-items: center;
     justify-content: center; */
-    color: blanchedalmond;
+    color: rgb(29, 104, 88);
     position: relative;
     background: radial-gradient(circle, #0d47a1, #42a5f5);
     background-image: url("https://www.toptal.com/designers/subtlepatterns/uploads/blue-snow.png");
@@ -22,8 +22,6 @@ body {
     /* width: fit-content; */
     min-width: 900px;
     margin: auto;
-    
-
 }
 
 #rosco {
@@ -33,4 +31,9 @@ body {
     margin: auto;
     /* width: 50%; */
 }
+/* p{
+    /* z-index: auto; */
+    position: absolute;
+    width: 20%;
+} */
 

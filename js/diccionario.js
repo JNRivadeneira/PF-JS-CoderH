@@ -317,7 +317,7 @@ let palabrasData = {
     },
     {
       pista: "Comienza con Ñ",
-      palabra: ["ñoño"],
+      palabra: ["ñoño", "ñoña"],
       definicion: "Dicho de una cosa: Sosa, de poca sustancia."
     },
     {
@@ -405,7 +405,7 @@ let palabrasData = {
     },
     {
       pista: "Comienza con R",
-      palabra: ["ruta"],
+      palabra: ["ruta", "rumbo"],
       definicion: "Camino o dirección que se toma para un propósito."
     },
     {
