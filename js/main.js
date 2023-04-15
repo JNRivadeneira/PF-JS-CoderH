@@ -1,5 +1,5 @@
 
-// Clases
+// CLASES
 class Diccionario{
   constructor(palabrasArray){
     this.palabrasArray = palabrasArray;
@@ -110,6 +110,10 @@ function show(element){
       let rosco = document.getElementById("div-rosco");
       rosco.classList.remove("hidden");
       break;
+    case "juego":
+      let juego = document.getElementById("menu-juego");
+      juego.classList.remove("hidden");
+      break;
     default:
       console.error("No existe el elemento: ", element);
   }
@@ -124,6 +128,10 @@ function hide(element){
     case "rosco":
       let rosco = document.getElementById("div-rosco");
       rosco.classList.add("hidden");
+      break;
+    case "juego":
+      let juego = document.getElementById("menu-juego");
+      juego.classList.add("hidden");
       break;
     default:
       console.error("No existe el elemento: ", element);
@@ -143,25 +151,7 @@ let marcador1 = {
   incorrectas: 0
 };
 
-
-
-
-/*// comienzo del juego
-for(const letra in set1){
-  let respuesta = prompt(`❔\n\n${set1[letra].pista}\n\n${set1[letra].definicion}`);
-  if(set1[letra].palabra.includes(respuesta.toLowerCase())){
-    alert("🥳 CORRECTO!");
-    marcador1.correctas++;
-    rosco1.setVerde(letra);
-  }
-  else{
-    alert(`❌ INCORRECTO!\n\nLa respuesta correcta es:       ${set1[letra].palabra.join(" / ")}`);
-    marcador1.incorrectas++; 
-    rosco1.setRojo(letra);
-  }
-};
-
-alert(`Resultado del juego:\nCORRECTAS: ${marcador1.correctas}\nINCORRECTAS: ${marcador1.incorrectas}`);*/
+// alert(`Resultado del juego:\nCORRECTAS: ${marcador1.correctas}\nINCORRECTAS: ${marcador1.incorrectas}`);*/
 
 // Comienzo del juego
 
@@ -172,7 +162,7 @@ let botonSiguiente = document.getElementById("boton-siguiente");
 let letra = "a";
 
 rosco1.isActive = true;
-show("rosco");
+// show("rosco");
 
 parrafoPista.innerText = rosco1.setPalabras[letra].pista
 parrafoDefinicion.innerText = rosco1.setPalabras[letra].definicion;
@@ -222,18 +212,6 @@ function siguiente(){
   // }
 // }
 
-
-
-
-/*function newGame(){
-  hide("menu");
-  // start(rosco1);
-}*/
-// start(rosco1);
-
-
-// hide("menu");
-// show("rosco");
 
 function prueba(){
   console.log(rosco1.saltaPalabra());
