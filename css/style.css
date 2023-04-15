@@ -15,14 +15,13 @@ body {
     background-size: auto; */
 }   
 
-.container {
+/* .contenedor {
     display: flex;
     align-items: center;
     justify-content: center;
-    /* width: fit-content; */
     min-width: 900px;
     margin: auto;
-}
+} */
 
 #rosco {
     position: relative;
@@ -31,9 +30,3 @@ body {
     margin: auto;
     /* width: 50%; */
 }
-/* p{
-    /* z-index: auto; */
-    position: absolute;
-    width: 20%;
-} */
-
