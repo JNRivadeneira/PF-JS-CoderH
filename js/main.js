@@ -22,6 +22,7 @@ class Rosco{
     this.punteroLetraActual = 0;
     this.punteroLetraSiguiente = 1;
     this.letrasRestantes = Object.keys(setPalabras);
+    this.isActive = false;
   }
   
 
@@ -97,71 +98,7 @@ class Rosco{
   }
 };
 
-// creacion de la partida
-const diccionario1 = new Diccionario(palabrasData);
-let set1 = diccionario1.getSet();
-let keys = Object.keys(set1);
-
-
-const rosco1 = new Rosco(set1);
-rosco1.render();
-
-let marcador1 = {
-  correctas: 0,
-  incorrectas: 0
-};
-
-
-/*// comienzo del juego
-for(const letra in set1){
-  let respuesta = prompt(`❔\n\n${set1[letra].pista}\n\n${set1[letra].definicion}`);
-  if(set1[letra].palabra.includes(respuesta.toLowerCase())){
-    alert("🥳 CORRECTO!");
-    marcador1.correctas++;
-    rosco1.setVerde(letra);
-  }
-  else{
-    alert(`❌ INCORRECTO!\n\nLa respuesta correcta es:       ${set1[letra].palabra.join(" / ")}`);
-    marcador1.incorrectas++; 
-    rosco1.setRojo(letra);
-  }
-};
-
-alert(`Resultado del juego:\nCORRECTAS: ${marcador1.correctas}\nINCORRECTAS: ${marcador1.incorrectas}`);*/
-
-// Comienzo del juego
-
-function start(){
-  let parrafoPista = document.getElementById("parrafo-pista");
-  let parrafoDefinicion = document.getElementById("parrafo-definicion");
-  let inputRespuesta = document.getElementById("input-respuesta");
-  
-  show("rosco");
-
-  while (keys.length > 0){
-  
-  }
-  console.log(keys.at(2));
-
-
-  // for (const letra in set1) {
-  //   parrafoPista.innerText = set1[letra].pista;
-  //   parrafoDefinicion.innerText = set1[letra].definicion;
-  //   inputRespuesta.addEventListener("keydown", (event) => {
-  //     console.log("prueba");
-  //   });
-  //   if (set1[letra].palabra.includes(inputRespuesta.value.toLowerCase())){
-  //     // alert("🥳 CORRECTO!");
-  //     marcador1.correctas++;
-  //     rosco1.setVerde(letra);
-  //   }
-  //   else {
-  //     // alert(`❌ INCORRECTO!\n\nLa respuesta correcta es:       ${set1[letra].palabra.join(" / ")}`);
-  //     marcador1.incorrectas++; 
-  //     rosco1.setRojo(letra);
-  //   }
-  // }
-}
+// FUNCIONES
 
 function show(element){
   switch (element) {
@@ -194,16 +131,114 @@ function hide(element){
 }
 
 
-// function newGame(){
-//   hide("menu");
-//   start();
-// }
-// start();
+// creacion de la partida
+const diccionario1 = new Diccionario(palabrasData);
+let set1 = diccionario1.getSet();
+let keys = Object.keys(set1);
+const rosco1 = new Rosco(set1);
+rosco1.render();
+
+let marcador1 = {
+  correctas: 0,
+  incorrectas: 0
+};
 
 
-hide("menu");
+
+
+/*// comienzo del juego
+for(const letra in set1){
+  let respuesta = prompt(`❔\n\n${set1[letra].pista}\n\n${set1[letra].definicion}`);
+  if(set1[letra].palabra.includes(respuesta.toLowerCase())){
+    alert("🥳 CORRECTO!");
+    marcador1.correctas++;
+    rosco1.setVerde(letra);
+  }
+  else{
+    alert(`❌ INCORRECTO!\n\nLa respuesta correcta es:       ${set1[letra].palabra.join(" / ")}`);
+    marcador1.incorrectas++; 
+    rosco1.setRojo(letra);
+  }
+};
+
+alert(`Resultado del juego:\nCORRECTAS: ${marcador1.correctas}\nINCORRECTAS: ${marcador1.incorrectas}`);*/
+
+// Comienzo del juego
+
+let parrafoPista = document.getElementById("parrafo-pista");
+let parrafoDefinicion = document.getElementById("parrafo-definicion");
+let inputRespuesta = document.getElementById("input-respuesta");
+let botonSiguiente = document.getElementById("boton-siguiente");
+let letra = "a";
+
+rosco1.isActive = true;
 show("rosco");
+
+parrafoPista.innerText = rosco1.setPalabras[letra].pista
+parrafoDefinicion.innerText = rosco1.setPalabras[letra].definicion;
+
+
+console.log("rosco es activo? ", rosco.isActive, rosco1.isActive);
+console.log(rosco1);
+
+
+function check(){
+  console.log(rosco1.setPalabras);
+  console.log(inputRespuesta.value.toLowerCase());
+  console.log(letra);
+  console.log(rosco1.setPalabras[letra].palabra.includes(inputRespuesta.value.toLowerCase()));
+  if (rosco1.setPalabras[letra].palabra.includes(inputRespuesta.value.toLowerCase())){
+    marcador1.correctas++;
+    rosco1.setVerde(letra);
+  }
+  else {
+    marcador1.incorrectas++;
+    rosco1.setRojo(letra);
+  }
+}
+
+function siguiente(){
+  letra = rosco1.saltaPalabra();
+  parrafoPista.innerText = rosco1.setPalabras[letra].pista
+  parrafoDefinicion.innerText = rosco1.setPalabras[letra].definicion;
+}
+
+  // for (const letra in set1) {
+  //   parrafoPista.innerText = set1[letra].pista;
+  //   parrafoDefinicion.innerText = set1[letra].definicion;
+  //   inputRespuesta.addEventListener("keydown", (event) => {
+  //     console.log("prueba");
+  //   });
+  //   if (set1[letra].palabra.includes(inputRespuesta.value.toLowerCase())){
+  //     // alert("🥳 CORRECTO!");
+  //     marcador1.correctas++;
+  //     rosco1.setVerde(letra);
+  //   }
+  //   else {
+  //     // alert(`❌ INCORRECTO!\n\nLa respuesta correcta es:       ${set1[letra].palabra.join(" / ")}`);
+  //     marcador1.incorrectas++; 
+  //     rosco1.setRojo(letra);
+  //   }
+  // }
+// }
+
+
+
+
+/*function newGame(){
+  hide("menu");
+  // start(rosco1);
+}*/
+// start(rosco1);
+
+
+// hide("menu");
+// show("rosco");
 
 function prueba(){
   console.log(rosco1.saltaPalabra());
+}
+
+function terminar(rosco){
+  rosco.isActive = false;
 }
