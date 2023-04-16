@@ -98,7 +98,7 @@ class Rosco{
   }
 };
 
-// FUNCIONES
+// FUNCIONES UTILES
 
 function show(element){
   switch (element) {
@@ -114,6 +114,10 @@ function show(element){
       let juego = document.getElementById("menu-juego");
       juego.classList.remove("hidden");
       break;
+    case "top10":
+    let top10 = document.getElementById("tabla-top10");
+    top10.classList.remove("hidden");
+    break;
     default:
       console.error("No existe el elemento: ", element);
   }
@@ -132,6 +136,10 @@ function hide(element){
     case "juego":
       let juego = document.getElementById("menu-juego");
       juego.classList.add("hidden");
+      break;
+    case "top10":
+      let top10 = document.getElementById("tabla-top10");
+      top10.classList.add("hidden");
       break;
     default:
       console.error("No existe el elemento: ", element);
@@ -154,7 +162,6 @@ let marcador1 = {
 // alert(`Resultado del juego:\nCORRECTAS: ${marcador1.correctas}\nINCORRECTAS: ${marcador1.incorrectas}`);*/
 
 // Comienzo del juego
-
 let parrafoPista = document.getElementById("parrafo-pista");
 let parrafoDefinicion = document.getElementById("parrafo-definicion");
 let inputRespuesta = document.getElementById("input-respuesta");
@@ -168,7 +175,7 @@ parrafoPista.innerText = rosco1.setPalabras[letra].pista
 parrafoDefinicion.innerText = rosco1.setPalabras[letra].definicion;
 
 
-console.log("rosco es activo? ", rosco.isActive, rosco1.isActive);
+console.log("rosco es activo? ", rosco1.isActive, rosco1.isActive);
 console.log(rosco1);
 
 
