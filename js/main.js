@@ -117,9 +117,22 @@ function show(element){
       juego.classList.remove("hidden");
       break;
     case "top10":
-    let top10 = document.getElementById("tabla-top10");
-    top10.classList.remove("hidden");
-    break;
+      let top10 = document.getElementById("tabla-top10");
+      let tablaTop10 = document.getElementById("tabla-top10-jugadores");
+      top10.classList.remove("hidden");
+      let tablaTop10Listado = "";
+      for (const jugador in top10Mock){
+        tablaTop10Listado += `
+        <div class="table-row first:bg-[#FFD700] odd:bg-none even:bg-blue-100">
+          <div class="table-cell p-3">${jugador}</div>
+          <div class="table-cell p-3">${top10Mock[jugador].nombre}</div>
+          <div class="table-cell p-3 text-right">${top10Mock[jugador].marcador.correctas}</div>
+        </div>`;
+      };
+      tablaTop10.innerHTML = tablaTop10Listado;
+
+
+      break;
     default:
       console.error("No existe el elemento: ", element);
   }
@@ -167,6 +180,8 @@ function isTop10(jugador){
 function ordenaTop10(){
   top10.sort((a, b) => b.marcador.correctas - a.marcador.correctas);
 }
+
+
 
 // creacion de la partida
 let top10Mock = [
