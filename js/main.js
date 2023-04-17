@@ -154,21 +154,53 @@ function nuevoJugador(){
 }
 
 function finalizarJuego(){
+  // guardar marcador jugador
+  // ver si es top10
+  //     si es, felicitar y agregar a top10 y ordenarlo.
+  //     si no, desear mejor suerte la próxima vez
+}
+
+function isTop10(jugador){
 
 }
 
+function ordenaTop10(){
+  top10.sort((a, b) => b.marcador.correctas - a.marcador.correctas);
+}
+
 // creacion de la partida
+let top10Mock = [
+  {
+    nombre: "Sutano",
+    marcador: {correctas: 10, incorrectas: 16}
+  },
+  {
+    nombre: "Mengano",
+    marcador: {correctas: 11, incorrectas: 15}
+  },
+  {
+    nombre: "Pepe",
+    marcador: {correctas: 13, incorrectas: 13}
+  },
+  {
+    nombre: "Tito",
+    marcador: {correctas: 9, incorrectas: 17}
+  },
+];
+
 const diccionario1 = new Diccionario(palabrasData);
 let set1 = diccionario1.getSet();
 let keys = Object.keys(set1);
-let jugador1 = "";
 const rosco1 = new Rosco(set1);
 rosco1.render();
 
+let jugador1 = "";
 let marcador1 = {
   correctas: 0,
   incorrectas: 0
 };
+
+let top10 = localStorage.getItem(JSON.parse("top10"));
 
 // alert(`Resultado del juego:\nCORRECTAS: ${marcador1.correctas}\nINCORRECTAS: ${marcador1.incorrectas}`);*/
 
