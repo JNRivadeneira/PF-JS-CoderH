@@ -111,6 +111,8 @@ function show(element){
       rosco.classList.remove("hidden");
       break;
     case "juego":
+      let saludoJugador = document.getElementById("saludo-jugador");
+      saludoJugador.innerHTML = `Buena suerte ${jugador1}! &#127808;`
       let juego = document.getElementById("menu-juego");
       juego.classList.remove("hidden");
       break;
@@ -146,11 +148,20 @@ function hide(element){
   }
 }
 
+function nuevoJugador(){
+  jugador1 = prompt("Ingresa tu nombre: ");
+  localStorage.setItem("jugadorRosco", JSON.stringify({nombre: jugador1, marcador: marcador1}));
+}
+
+function finalizarJuego(){
+
+}
 
 // creacion de la partida
 const diccionario1 = new Diccionario(palabrasData);
 let set1 = diccionario1.getSet();
 let keys = Object.keys(set1);
+let jugador1 = "";
 const rosco1 = new Rosco(set1);
 rosco1.render();
 
