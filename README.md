@@ -15,9 +15,11 @@ Se trata de un juego interactivo donde el jugador deberá acertar la mayor canti
 `Top 10` muestra el ranking de jugadores ordenados por puntaje, de mayor a menor.
 
 ### Rosco
-El rosco consta de 26 letras. Dentro de él se encuentra una pista que indica si la palabra a adivinar comienza con esa letra, o si forma parte de ella. También se muestra una breve definición de la palabra, obtenida del diccionario español.
+El rosco consta de 26 letras. Dentro de él se encuentra una pista que indica si la palabra a adivinar comienza con esa letra, o si forma parte de ella. También se muestra una breve definición de la palabra, obtenida del diccionario español -*atención a los acentos*- 😉  
+
 Más abajo se encuentra el input donde el jugador debe ingresar su respuesta.
 Una vez ingresada, el jugador debe proceder a chequear su respuesta haciendo click en el botón `Check`. Si es correcta, la letra del rosco correspondiente se pintará de verde, mietras que si es incorrecta lo hará de rojo.
+
 Para continuar con la siguiente palabra, el jugador debe hacer click en el botón `Siguiente`. Y así hasta finalizar.
 >El jugador puede pasar a la siguiente palabra, aún sin contestarla, y volver a ella luego.
 

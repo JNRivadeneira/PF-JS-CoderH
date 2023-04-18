@@ -176,7 +176,8 @@ function nuevoJugador(){
 
 function finalizarJuego(){
   // guardar marcador jugador
-  let top10FromLocalStorage = JSON.parse(localStorage.getItem("top10Rosco"));
+  
+  let top10FromLocalStorage = JSON.parse(localStorage.getItem("top10Rosco")) || [];
   let nuevoTop10 = [...top10FromLocalStorage, {nombre: jugador1, marcador: marcador1}];
   localStorage.setItem("top10Rosco", JSON.stringify(nuevoTop10));
   // ver si es top10
