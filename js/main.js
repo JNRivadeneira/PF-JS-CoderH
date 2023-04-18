@@ -215,6 +215,7 @@ let top10Mock = [
     marcador: {correctas: 9, incorrectas: 17}
   },
 ];
+// localStorage.clear();
 
 const diccionario1 = new Diccionario(palabrasData);
 let set1 = diccionario1.getSet();
