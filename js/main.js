@@ -175,18 +175,20 @@ function nuevoJugador(){
 }
 
 function finalizarJuego(){
-  // guardar marcador jugador
-  
   let top10FromLocalStorage = JSON.parse(localStorage.getItem("top10Rosco")) || [];
+  // guardar marcador jugador
   let nuevoTop10 = [...top10FromLocalStorage, {nombre: jugador1, marcador: marcador1}];
   localStorage.setItem("top10Rosco", JSON.stringify(nuevoTop10));
+  hide("juego");
+  show("top10");
+  show("menu");
   // ver si es top10
   //     si es, felicitar y agregar a top10 y ordenarlo.
   //     si no, desear mejor suerte la próxima vez
 }
 
 function isTop10(jugador){
-  // evaluar si el puntaje final del juegador le permite ingresar al top10
+  // evaluar si el puntaje final del jugador le permite ingresar al top10
 }
 
 function ordenaTop10(top10){
