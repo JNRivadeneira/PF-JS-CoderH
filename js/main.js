@@ -224,15 +224,15 @@ let marcador1 = {
   incorrectas: 0
 };
 
-// Comienzo del juego
+// Comienzo del juego - Variables globales
 let parrafoPista = document.getElementById("parrafo-pista");
 let parrafoDefinicion = document.getElementById("parrafo-definicion");
 let inputRespuesta = document.getElementById("input-respuesta");
 let botonSiguiente = document.getElementById("boton-siguiente");
-let letra = "a";
 
 rosco1.isActive = true;
 
+let letra = "a";
 parrafoPista.innerText = rosco1.setPalabras[letra].pista
 parrafoDefinicion.innerText = rosco1.setPalabras[letra].definicion;
 
