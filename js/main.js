@@ -106,33 +106,41 @@ function show(element){
       let menu = document.getElementById("menu-nuevo-juego");
       menu.classList.remove("hidden");
       break;
+
     case "rosco":
       let rosco = document.getElementById("div-rosco");
       rosco.classList.remove("hidden");
       break;
+
     case "juego":
       let saludoJugador = document.getElementById("saludo-jugador");
       saludoJugador.innerHTML = `Buena suerte ${jugador1}! &#127808;`
       let juego = document.getElementById("menu-juego");
       juego.classList.remove("hidden");
       break;
+
     case "top10":
       let top10 = document.getElementById("tabla-top10");
       let tablaTop10 = document.getElementById("tabla-top10-jugadores");
-      top10.classList.remove("hidden");
       let tablaTop10Listado = "";
-      for (const jugador in top10Mock){
+      top10.classList.remove("hidden");
+      // cargar el top10 desde el storage
+      let top10FromLocalStorage = JSON.parse(localStorage.getItem("top10Rosco"));
+      console.log(top10FromLocalStorage);
+      // ordenar el top10
+      ordenaTop10(top10FromLocalStorage);
+      // genera el contenido html de top10
+      for (const jugador in top10FromLocalStorage){
         tablaTop10Listado += `
         <div class="table-row first:bg-[#FFD700] odd:bg-none even:bg-blue-100">
-          <div class="table-cell p-3">${jugador}</div>
-          <div class="table-cell p-3">${top10Mock[jugador].nombre}</div>
-          <div class="table-cell p-3 text-right">${top10Mock[jugador].marcador.correctas}</div>
+          <div class="table-cell p-3">${parseInt(jugador) + 1}</div>
+          <div class="table-cell p-3">${top10FromLocalStorage[jugador].nombre}</div>
+          <div class="table-cell p-3 text-right">${top10FromLocalStorage[jugador].marcador.correctas}</div>
         </div>`;
       };
       tablaTop10.innerHTML = tablaTop10Listado;
-
-
       break;
+
     default:
       console.error("No existe el elemento: ", element);
   }
@@ -174,11 +182,13 @@ function finalizarJuego(){
 }
 
 function isTop10(jugador){
-
+  // evaluar si el puntaje final del juegador le permite ingresar al top10
 }
 
-function ordenaTop10(){
-  top10.sort((a, b) => b.marcador.correctas - a.marcador.correctas);
+function ordenaTop10(top10){
+  // ordenar top10Mock y generar el top10 ordenado
+  top10.sort((a, b) => b.marcador.correctas - a.marcador.correctas)
+  // console.log(top10Mock.sort((a, b) => b.marcador.correctas - a.marcador.correctas));
 }
 
 
@@ -215,7 +225,7 @@ let marcador1 = {
   incorrectas: 0
 };
 
-let top10 = localStorage.getItem(JSON.parse("top10"));
+// let top10 = localStorage.getItem(JSON.parse("top10"));
 
 // alert(`Resultado del juego:\nCORRECTAS: ${marcador1.correctas}\nINCORRECTAS: ${marcador1.incorrectas}`);*/
 
@@ -233,11 +243,12 @@ parrafoPista.innerText = rosco1.setPalabras[letra].pista
 parrafoDefinicion.innerText = rosco1.setPalabras[letra].definicion;
 
 
-console.log("rosco es activo? ", rosco1.isActive, rosco1.isActive);
+console.log("rosco es activo? ", rosco1.isActive);
 console.log(rosco1);
 
 
 function check(){
+  // valida la respuesta del jugador y suma sus puntos
   console.log(rosco1.setPalabras);
   console.log(inputRespuesta.value.toLowerCase());
   console.log(letra);
@@ -283,5 +294,7 @@ function prueba(){
 }
 
 function terminar(rosco){
+  // termina el juego. De debe cerrar el juego y determinar si el puntaje
+  // del juegador lo hace ingresar al top10
   rosco.isActive = false;
 }
