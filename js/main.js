@@ -176,6 +176,9 @@ function nuevoJugador(){
 
 function finalizarJuego(){
   // guardar marcador jugador
+  let top10FromLocalStorage = JSON.parse(localStorage.getItem("top10Rosco"));
+  let nuevoTop10 = [...top10FromLocalStorage, {nombre: jugador1, marcador: marcador1}];
+  localStorage.setItem("top10Rosco", JSON.stringify(nuevoTop10));
   // ver si es top10
   //     si es, felicitar y agregar a top10 y ordenarlo.
   //     si no, desear mejor suerte la próxima vez
@@ -225,9 +228,6 @@ let marcador1 = {
   incorrectas: 0
 };
 
-// let top10 = localStorage.getItem(JSON.parse("top10"));
-
-// alert(`Resultado del juego:\nCORRECTAS: ${marcador1.correctas}\nINCORRECTAS: ${marcador1.incorrectas}`);*/
 
 // Comienzo del juego
 let parrafoPista = document.getElementById("parrafo-pista");
@@ -243,8 +243,8 @@ parrafoPista.innerText = rosco1.setPalabras[letra].pista
 parrafoDefinicion.innerText = rosco1.setPalabras[letra].definicion;
 
 
-console.log("rosco es activo? ", rosco1.isActive);
-console.log(rosco1);
+// console.log("rosco es activo? ", rosco1.isActive);
+// console.log(rosco1);
 
 
 function check(){
@@ -294,7 +294,10 @@ function prueba(){
 }
 
 function terminar(rosco){
-  // termina el juego. De debe cerrar el juego y determinar si el puntaje
-  // del juegador lo hace ingresar al top10
+  // termina el juego. Se debe cerrar el juego y determinar si el puntaje
+  // del jugador lo hace ingresar al top10
+  finalizarJuego();
   rosco.isActive = false;
+  hide("rosco");
+
 }
