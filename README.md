@@ -1,4 +1,4 @@
-![Imagen Portada](https://github.com/JNRivadeneira/PF-JS-CoderH/blob/4c53d91d6528d92cd1aeb13e588d1d3dfd079ed7/img/readme01.gif)
+![Imagen Portada](https://github.com/JNRivadeneira/PF-JS-CoderH/blob/f54ee064ac0fc0f914ebc92ca26dae70c8e8c0ce/img/readme01.png)
 > PF-JS-CoderH: Proyecto final de curso de JavaScript de Coder House.
 # SALTAPALABRA
 
