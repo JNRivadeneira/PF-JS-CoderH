@@ -126,7 +126,6 @@ function show(element){
       top10.classList.remove("hidden");
       // cargar el top10 desde el storage
       let top10FromLocalStorage = JSON.parse(localStorage.getItem("top10Rosco"));
-      console.log(top10FromLocalStorage);
       // ordenar el top10
       ordenaTop10(top10FromLocalStorage);
       // genera el contenido html de top10
@@ -197,6 +196,23 @@ function ordenaTop10(top10){
   // console.log(top10Mock.sort((a, b) => b.marcador.correctas - a.marcador.correctas));
 }
 
+function check(){
+  // valida la respuesta del jugador y suma sus puntos
+  if (rosco1.setPalabras[letra].palabra.includes(inputRespuesta.value.toLowerCase())){
+    marcador1.correctas++;
+    rosco1.setVerde(letra);
+  }
+  else {
+    marcador1.incorrectas++;
+    rosco1.setRojo(letra);
+  }
+}
+
+function siguiente(){
+  letra = rosco1.saltaPalabra();
+  parrafoPista.innerText = rosco1.setPalabras[letra].pista
+  parrafoDefinicion.innerText = rosco1.setPalabras[letra].definicion;
+}
 
 
 // creacion de la partida
@@ -251,57 +267,8 @@ parrafoDefinicion.innerText = rosco1.setPalabras[letra].definicion;
 // console.log(rosco1);
 
 
-function check(){
-  // valida la respuesta del jugador y suma sus puntos
-  console.log(rosco1.setPalabras);
-  console.log(inputRespuesta.value.toLowerCase());
-  console.log(letra);
-  console.log(rosco1.setPalabras[letra].palabra.includes(inputRespuesta.value.toLowerCase()));
-  if (rosco1.setPalabras[letra].palabra.includes(inputRespuesta.value.toLowerCase())){
-    marcador1.correctas++;
-    rosco1.setVerde(letra);
-  }
-  else {
-    marcador1.incorrectas++;
-    rosco1.setRojo(letra);
-  }
-}
-
-function siguiente(){
-  letra = rosco1.saltaPalabra();
-  parrafoPista.innerText = rosco1.setPalabras[letra].pista
-  parrafoDefinicion.innerText = rosco1.setPalabras[letra].definicion;
-}
-
-  // for (const letra in set1) {
-  //   parrafoPista.innerText = set1[letra].pista;
-  //   parrafoDefinicion.innerText = set1[letra].definicion;
-  //   inputRespuesta.addEventListener("keydown", (event) => {
-  //     console.log("prueba");
-  //   });
-  //   if (set1[letra].palabra.includes(inputRespuesta.value.toLowerCase())){
-  //     // alert("🥳 CORRECTO!");
-  //     marcador1.correctas++;
-  //     rosco1.setVerde(letra);
-  //   }
-  //   else {
-  //     // alert(`❌ INCORRECTO!\n\nLa respuesta correcta es:       ${set1[letra].palabra.join(" / ")}`);
-  //     marcador1.incorrectas++; 
-  //     rosco1.setRojo(letra);
-  //   }
-  // }
-// }
 
 
 function prueba(){
   console.log(rosco1.saltaPalabra());
-}
-
-function terminar(rosco){
-  // termina el juego. Se debe cerrar el juego y determinar si el puntaje
-  // del jugador lo hace ingresar al top10
-  finalizarJuego();
-  rosco.isActive = false;
-  hide("rosco");
-
 }
