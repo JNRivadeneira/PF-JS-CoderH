@@ -28,7 +28,6 @@ class Rosco{
 
   render(){
     let divRosco = document.getElementById("rosco");
-    // let rosco = "";
     let rosco = `
       <button id="circulo-a" disabled class="absolute text-white bg-gradient-to-r from-blue-500 via-blue-600 to-blue-700 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:ring-blue-800 shadow-lg shadow-[#2056df] font-semibold rounded-full text-lg px-4 py-2 text-center" style="top: 0px; right: 250px">A</button>
       <button id="circulo-b" disabled class="absolute text-white bg-gradient-to-r from-blue-500 via-blue-600 to-blue-700 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:ring-blue-800 shadow-lg shadow-[#2056df] font-semibold rounded-full text-lg px-4 py-2 text-center" style="top: 7.26px; right: 190.17px">B</button>
@@ -57,26 +56,8 @@ class Rosco{
       <button id="circulo-y" disabled class="absolute text-white bg-gradient-to-r from-blue-500 via-blue-600 to-blue-700 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:ring-blue-800 shadow-lg shadow-[#2056df] font-semibold rounded-full text-lg px-4 py-2 text-center" style="top: 28.63px; left: 133.81px">Y</button>
       <button id="circulo-z" disabled class="absolute text-white bg-gradient-to-r from-blue-500 via-blue-600 to-blue-700 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:ring-blue-800 shadow-lg shadow-[#2056df] font-semibold rounded-full text-lg px-4 py-2 text-center" style="top: 7.26px; left: 190.17px">Z</button>
     `;
-    // agrega círculos al rosco por cada letra del set de palabras.
-    // for(const letra in this.setPalabras){
-    //   rosco += `<button id="circulo-${letra}" type="button" disabled class="text-white bg-gradient-to-r from-blue-500 via-blue-600 to-blue-700 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:ring-blue-800 shadow-lg shadow-neutral-500/50 dark:shadow-lg dark:shadow-neutral-800/80 font-semibold rounded-full text-lg px-4 py-2 text-center mr-2 mb-2 ">${letra.toUpperCase()}</button>`;
-    // }
-    // console.log(this.setPalabras)
-    // console.log(rosco);
     divRosco.innerHTML = rosco;
-    // console.log(divRosco)
   }
-
-  // setStatusRespuestas(Correctas, Incorrectas, sinContestar){
-  
-  // };
-
-  // getStatusRespuestas(){
-  //   let status = {
-  //     correctas: 0,
-  //     incorrectas: 0
-  //   };
-  // }
 
   setVerde(letra){
     document.getElementById(`circulo-${letra}`).classList.add("from-green-500", "via-green-600", "to-green-700", "focus:ring-green-300", "shadow-[#158f43]");
@@ -84,7 +65,6 @@ class Rosco{
   };
 
   setRojo(letra){
-    // document.getElementById(`circulo-${letra}`).className = "text-white bg-gradient-to-r from-red-500 via-red-600 to-red-700 focus:ring-4 focus:outline-none focus:ring-red-300 dark:ring-blue-800 shadow-lg shadow-neutral-500/50 dark:shadow-lg dark:shadow-neutral-800/80 font-semibold rounded-full text-lg px-4 py-2 text-center mr-2 mb-2 ";
     document.getElementById(`circulo-${letra}`).classList.add("from-red-500", "via-red-600", "to-red-700", "focus:ring-red-300", "shadow-[#c92020]");
     document.getElementById(`circulo-${letra}`).classList.remove("from-blue-500", "via-blue-600", "to-blue-700", "focus:ring-blue-300", "shadow-[#2056df]");
   };
@@ -92,9 +72,7 @@ class Rosco{
   saltaPalabra(){
     (this.punteroLetraActual == this.letrasRestantes.length - 1)? this.punteroLetraActual = 0 : this.punteroLetraActual++;
     (this.punteroLetraSiguiente == this.letrasRestantes.length - 1)? this.punteroLetraSiguiente = 0 : this.punteroLetraSiguiente++;
-
     return this.letrasRestantes.at(this.punteroLetraActual);
-
   }
 };
 
@@ -193,7 +171,6 @@ function isTop10(jugador){
 function ordenaTop10(top10){
   // ordenar top10Mock y generar el top10 ordenado
   top10.sort((a, b) => b.marcador.correctas - a.marcador.correctas)
-  // console.log(top10Mock.sort((a, b) => b.marcador.correctas - a.marcador.correctas));
 }
 
 function check(){
@@ -234,7 +211,6 @@ let top10Mock = [
     marcador: {correctas: 9, incorrectas: 17}
   },
 ];
-// localStorage.clear();
 
 const diccionario1 = new Diccionario(palabrasData);
 let set1 = diccionario1.getSet();
@@ -248,7 +224,6 @@ let marcador1 = {
   incorrectas: 0
 };
 
-
 // Comienzo del juego
 let parrafoPista = document.getElementById("parrafo-pista");
 let parrafoDefinicion = document.getElementById("parrafo-definicion");
@@ -257,18 +232,12 @@ let botonSiguiente = document.getElementById("boton-siguiente");
 let letra = "a";
 
 rosco1.isActive = true;
-// show("rosco");
 
 parrafoPista.innerText = rosco1.setPalabras[letra].pista
 parrafoDefinicion.innerText = rosco1.setPalabras[letra].definicion;
 
 
-// console.log("rosco es activo? ", rosco1.isActive);
-// console.log(rosco1);
-
-
-
-
 function prueba(){
+  // función para probar cosas
   console.log(rosco1.saltaPalabra());
 }
