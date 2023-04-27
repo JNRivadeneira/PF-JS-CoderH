@@ -191,10 +191,29 @@ function siguiente(){
   parrafoDefinicion.innerText = rosco1.setPalabras[letra].definicion;
 }
 
-async function getDict(){
-  const URLJSON = "../data/diccionario.json";
-  const response = await fetch(URLJSON);
-  const diccionario = await response.json();
+// async function getDict(){
+//   const URLJSON = "../data/diccionario.json";
+//   const response = await fetch(URLJSON);
+//   const diccionario = await response.json();
+//   return diccionario;
+// }
+
+function getDict(){
+  return new Promise(async (resolve, reject) => {
+    try {
+      const URLJSON = "../data/diccionario.json";
+      const response = await fetch(URLJSON);
+      const diccionario = await response.json();
+      resolve(diccionario);
+    } catch(error) {
+      reject(console.log("No se pudieron obtener datos desde la API.", error))
+    }
+  })
+}
+
+async function crearInstanciaDeDiccionario(){
+  const dictFromAPI = await getDict();
+  const diccionario = new Diccionario(dictFromAPI);
   return diccionario;
 }
 
@@ -218,11 +237,20 @@ let top10Mock = [
   },
 ];
 
-// const diccionario1 = new Diccionario(palabrasData);
-// const dictFromAPI = getDict();
+const diccionario1 = new Diccionario(palabrasData);
+const diccionario2 = crearInstanciaDeDiccionario();
+console.log("diccionario1: ", diccionario1);
+console.log("diccionario2: ", diccionario2);
+
+// const dictFromAPI = getDict().then((data) => {console.log(data)});
 // console.log(dictFromAPI);
 
-const diccionario1 = new Diccionario(await getDict());
+
+// const diccionario1 = crearInstanciaDeDiccionario();
+// console.log("diccionario1: ", diccionario1);
+// const diccionario2 = new Diccionario(palabrasData);
+// console.log("diccionario2: ", diccionario2);
+
 
 let set1 = diccionario1.getSet();
 let keys = Object.keys(set1);
