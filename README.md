@@ -1,5 +1,6 @@
 ![Imagen Portada](https://github.com/JNRivadeneira/PF-JS-CoderH/blob/f54ee064ac0fc0f914ebc92ca26dae70c8e8c0ce/img/readme01.png)
-> PF-JS-CoderH: Proyecto final de curso de JavaScript de Coder House.
+> PF-JS-CoderH: Proyecto final de curso de JavaScript de CoderHouse.
+*Autor/alumno: Jorge Rivadeneira - Comisión: 51170*
 # SALTAPALABRA
 
 ## Descripción del proyecto

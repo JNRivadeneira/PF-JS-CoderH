@@ -574,3 +574,5 @@ let palabrasData = {
     },
   ],
 };
+// Para convertir el objeto diccionario a JSON, que luego guardo en un archivo.
+// console.log(JSON.stringify(palabrasData));
