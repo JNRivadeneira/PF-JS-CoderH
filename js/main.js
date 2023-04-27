@@ -191,6 +191,12 @@ function siguiente(){
   parrafoDefinicion.innerText = rosco1.setPalabras[letra].definicion;
 }
 
+async function getDict(){
+  const URLJSON = "../data/diccionario.json";
+  const response = await fetch(URLJSON);
+  const diccionario = await response.json();
+  return diccionario;
+}
 
 // creacion de la partida
 let top10Mock = [
@@ -212,7 +218,12 @@ let top10Mock = [
   },
 ];
 
-const diccionario1 = new Diccionario(palabrasData);
+// const diccionario1 = new Diccionario(palabrasData);
+// const dictFromAPI = getDict();
+// console.log(dictFromAPI);
+
+const diccionario1 = new Diccionario(await getDict());
+
 let set1 = diccionario1.getSet();
 let keys = Object.keys(set1);
 const rosco1 = new Rosco(set1);
