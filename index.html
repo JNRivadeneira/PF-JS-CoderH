@@ -6,6 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <script src="https://cdn.tailwindcss.com"></script>
   <script src="https://cdn.tailwindcss.com?plugins=forms,typography,aspect-ratio"></script>
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
   <link rel="stylesheet" href="css/style.css">
   <!-- <link href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.6.4/flowbite.min.css" rel="stylesheet" /> -->
   <title>Saltapalabra</title>
@@ -15,7 +16,11 @@
     Simulador saltapalabra
   </h1>
   <div id="menu-nuevo-juego" class="container mx-auto flex flex-col items-center content-center">
-    <a id="boton-nueva-partida" href="#" onclick="hide('menu'), nuevoJugador(), show('juego')" class="m-3 py-1 px-16 w-1/2 bg-blue-500 text-white text-center font-bold border-transparent border-4 text-2xl rounded-3xl select-none hover:bg-white hover:text-black hover:border-blue-500 transition duration-200 xl:w-1/3">
+    <a  id="boton-nueva-partida" 
+        href="#" 
+        onclick="reiniciarJuego(), crearJuego(), nuevoJugador()" 
+        class="m-3 py-1 px-16 w-1/2 bg-blue-500 text-white text-center font-bold border-transparent border-4 text-2xl rounded-3xl select-none hover:bg-white hover:text-black hover:border-blue-500 transition duration-200 xl:w-1/3"
+    >
       Nueva partida
     </a>
     <a id="boton-top-10" href="#" onclick="show('top10')" class="m-3 py-1 px-16 w-1/2 bg-blue-500 text-white text-center font-bold border-transparent border-4 text-2xl rounded-3xl select-none hover:bg-white hover:text-black hover:border-blue-500 transition duration-200 xl:w-1/3">
@@ -72,8 +77,10 @@
     </div>
 
   </div>
-
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.6.4/flowbite.min.js"></script>  
+  <!-- Librería de Flowbite -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.6.4/flowbite.min.js"></script>
+  
+  <!-- Mis Scripts -->
   <script src="js/diccionario.js"></script>
   <script src="js/main.js"></script>
 </body>
