@@ -5,6 +5,8 @@ class Diccionario{
     this.palabrasArray = palabrasArray;
   }
 
+  
+
   getSet(){
     let set = [];
     for(const letra in this.palabrasArray){
@@ -91,9 +93,9 @@ function show(element){
       break;
 
     case "juego":
-      let saludoJugador = document.getElementById("saludo-jugador");
+      // let saludoJugador = document.getElementById("saludo-jugador");
       saludoJugador.innerHTML = `Buena suerte ${jugador1}! &#127808;`
-      let juego = document.getElementById("menu-juego");
+      // let juego = document.getElementById("menu-juego");
       juego.classList.remove("hidden");
       break;
 
@@ -146,9 +148,27 @@ function hide(element){
   }
 }
 
-function nuevoJugador(){
-  jugador1 = prompt("Ingresa tu nombre: ");
-  localStorage.setItem("jugadorRosco", JSON.stringify({nombre: jugador1, marcador: marcador1}));
+async function nuevoJugador() {
+  const { value: nombre } = await Swal.fire({
+    title: 'Ingresá tu nombre',
+    input: 'text',
+    inputPlaceholder: 'tu nombre',
+    showCancelButton: true,
+    confirmButtonText: 'Jugar',
+    cancelButtonText: 'Cancelar',
+    inputValidator: (value) => {
+      if (!value) {
+        return 'Debe ingresar un nombre'
+      }
+    }
+  })
+
+  if (nombre) {
+    jugador1 = nombre;
+    localStorage.setItem("jugadorRosco", JSON.stringify({nombre: jugador1, marcador: marcador1}));
+    hide("menu");
+    show("juego");
+  }
 }
 
 function finalizarJuego(){
@@ -189,32 +209,47 @@ function siguiente(){
   letra = rosco1.saltaPalabra();
   parrafoPista.innerText = rosco1.setPalabras[letra].pista
   parrafoDefinicion.innerText = rosco1.setPalabras[letra].definicion;
+  inputRespuesta.value = "";
 }
 
-// async function getDict(){
-//   const URLJSON = "../data/diccionario.json";
-//   const response = await fetch(URLJSON);
-//   const diccionario = await response.json();
-//   return diccionario;
-// }
-
-function getDict(){
-  return new Promise(async (resolve, reject) => {
-    try {
-      const URLJSON = "../data/diccionario.json";
-      const response = await fetch(URLJSON);
-      const diccionario = await response.json();
-      resolve(diccionario);
-    } catch(error) {
-      reject(console.log("No se pudieron obtener datos desde la API.", error))
-    }
-  })
+async function getDict(){
+  try {
+    const URLJSON = "../data/diccionario.json";
+    const response = await fetch(URLJSON);
+    const diccionario = await response.json();
+    return diccionario;
+  } catch(error) {
+    console.log("No se pudieron obtener datos desde la API.", error);
+  }
 }
 
-async function crearInstanciaDeDiccionario(){
-  const dictFromAPI = await getDict();
-  const diccionario = new Diccionario(dictFromAPI);
-  return diccionario;
+async function crearJuego(){
+  let diccionarioDelJuego = await getDict();
+  // console.log("Diccionario del juego: ", diccionarioDelJuego);
+  diccionario1 = new Diccionario(diccionarioDelJuego);
+  // console.log(typeof(diccionario1));
+  set1 = diccionario1.getSet();
+  // console.log(set1);
+  let keys = Object.keys(set1);
+  rosco1 = new Rosco(set1);
+  rosco1.render();
+  rosco1.isActive = true;
+  parrafoPista.innerText = rosco1.setPalabras[letra].pista
+  parrafoDefinicion.innerText = rosco1.setPalabras[letra].definicion;
+}
+
+function reiniciarJuego(){
+  diccionario1 =[];
+  set1 = [];
+  keys = [];
+  rosco1;
+  jugador1 = "";
+  marcador1 = {
+    correctas: 0,
+    incorrectas: 0
+  };
+  letra = "a";
+  inputRespuesta.value = "";
 }
 
 // creacion de la partida
@@ -237,10 +272,36 @@ let top10Mock = [
   },
 ];
 
-const diccionario1 = new Diccionario(palabrasData);
-const diccionario2 = crearInstanciaDeDiccionario();
-console.log("diccionario1: ", diccionario1);
-console.log("diccionario2: ", diccionario2);
+
+// const diccionario1 = new Diccionario(palabrasData);
+
+// const diccionario1 = getDict().then((diccionario) => {return new Diccionario(diccionario)});
+// const diccionario1 = crearInstanciaDeDiccionario();
+let diccionario1 =[];
+let set1 = [];
+let keys = [];
+let rosco1;
+let jugador1 = "";
+let marcador1 = {
+  correctas: 0,
+  incorrectas: 0
+};
+let letra = "a";
+
+let parrafoPista = document.getElementById("parrafo-pista");
+let parrafoDefinicion = document.getElementById("parrafo-definicion");
+let inputRespuesta = document.getElementById("input-respuesta");
+let botonSiguiente = document.getElementById("boton-siguiente");
+let saludoJugador = document.getElementById("saludo-jugador");
+let juego = document.getElementById("menu-juego");
+
+
+crearJuego();
+
+
+// crearInstanciaDeDiccionario();
+// console.log("diccionario1: ", diccionario1);
+// console.log("diccionario2: ", diccionario2);
 
 // const dictFromAPI = getDict().then((data) => {console.log(data)});
 // console.log(dictFromAPI);
@@ -252,28 +313,25 @@ console.log("diccionario2: ", diccionario2);
 // console.log("diccionario2: ", diccionario2);
 
 
-let set1 = diccionario1.getSet();
-let keys = Object.keys(set1);
-const rosco1 = new Rosco(set1);
-rosco1.render();
+/// let set1 = diccionario1.getSet();
+/// let keys = Object.keys(set1);
+/// const rosco1 = new Rosco(set1);
+/// rosco1.render();
 
-let jugador1 = "";
-let marcador1 = {
-  correctas: 0,
-  incorrectas: 0
-};
+/// let jugador1 = "";
+//  let marcador1 = {
+//    correctas: 0,
+//    incorrectas: 0
+//  };
 
 // Comienzo del juego - Variables globales
-let parrafoPista = document.getElementById("parrafo-pista");
-let parrafoDefinicion = document.getElementById("parrafo-definicion");
-let inputRespuesta = document.getElementById("input-respuesta");
-let botonSiguiente = document.getElementById("boton-siguiente");
 
-rosco1.isActive = true;
 
-let letra = "a";
-parrafoPista.innerText = rosco1.setPalabras[letra].pista
-parrafoDefinicion.innerText = rosco1.setPalabras[letra].definicion;
+// rosco1.isActive = true;
+
+/// let letra = "a";
+// parrafoPista.innerText = rosco1.setPalabras[letra].pista
+// parrafoDefinicion.innerText = rosco1.setPalabras[letra].definicion;
 
 
 function prueba(){
