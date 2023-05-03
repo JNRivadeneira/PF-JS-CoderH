@@ -5,8 +5,6 @@ class Diccionario{
     this.palabrasArray = palabrasArray;
   }
 
-  
-
   getSet(){
     let set = [];
     for(const letra in this.palabrasArray){
@@ -158,7 +156,7 @@ async function nuevoJugador() {
     cancelButtonText: 'Cancelar',
     inputValidator: (value) => {
       if (!value) {
-        return 'Debe ingresar un nombre'
+        return 'Debes ingresar un nombre'
       }
     }
   })
@@ -213,9 +211,19 @@ function siguiente(){
 }
 
 async function getDict(){
+  const request = new Request(
+    "https://api.jsonbin.io/v3/b/64518d6bb89b1e229995b9d0", 
+    {
+      method: "GET", 
+      headers: {
+        "X-Master-Key": "$2b$10$ZyKyROpXJIjQJK8kHryPPu9LtG53TPB5A3DxYfZUzlHnsxo06F7vK", 
+        "X-Bin-Meta": "false"
+      }
+    }
+  );
   try {
-    const URLJSON = "../data/diccionario.json";
-    const response = await fetch(URLJSON);
+    // const URLJSON = "../data/diccionario.json";
+    const response = await fetch(request);
     const diccionario = await response.json();
     return diccionario;
   } catch(error) {
@@ -252,7 +260,7 @@ function reiniciarJuego(){
   inputRespuesta.value = "";
 }
 
-// creacion de la partida
+// creacion de la partida - Variables globales
 let top10Mock = [
   {
     nombre: "Sutano",
@@ -271,12 +279,6 @@ let top10Mock = [
     marcador: {correctas: 9, incorrectas: 17}
   },
 ];
-
-
-// const diccionario1 = new Diccionario(palabrasData);
-
-// const diccionario1 = getDict().then((diccionario) => {return new Diccionario(diccionario)});
-// const diccionario1 = crearInstanciaDeDiccionario();
 let diccionario1 =[];
 let set1 = [];
 let keys = [];
@@ -295,43 +297,7 @@ let botonSiguiente = document.getElementById("boton-siguiente");
 let saludoJugador = document.getElementById("saludo-jugador");
 let juego = document.getElementById("menu-juego");
 
-
 crearJuego();
-
-
-// crearInstanciaDeDiccionario();
-// console.log("diccionario1: ", diccionario1);
-// console.log("diccionario2: ", diccionario2);
-
-// const dictFromAPI = getDict().then((data) => {console.log(data)});
-// console.log(dictFromAPI);
-
-
-// const diccionario1 = crearInstanciaDeDiccionario();
-// console.log("diccionario1: ", diccionario1);
-// const diccionario2 = new Diccionario(palabrasData);
-// console.log("diccionario2: ", diccionario2);
-
-
-/// let set1 = diccionario1.getSet();
-/// let keys = Object.keys(set1);
-/// const rosco1 = new Rosco(set1);
-/// rosco1.render();
-
-/// let jugador1 = "";
-//  let marcador1 = {
-//    correctas: 0,
-//    incorrectas: 0
-//  };
-
-// Comienzo del juego - Variables globales
-
-
-// rosco1.isActive = true;
-
-/// let letra = "a";
-// parrafoPista.innerText = rosco1.setPalabras[letra].pista
-// parrafoDefinicion.innerText = rosco1.setPalabras[letra].definicion;
 
 
 function prueba(){
