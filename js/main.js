@@ -32,31 +32,31 @@ class Rosco{
     let divRosco = document.getElementById("rosco");
     let rosco = `
       <button id="circulo-a" disabled class="absolute text-white bg-gradient-to-r from-blue-500 via-blue-600 to-blue-700 ring-4 ring-fuchsia-400 dark:ring-fuchsia-400 shadow-lg shadow-[#2056df] font-semibold rounded-full text-lg px-4 py-2 text-center" style="top: 0px; right: 250px">A</button>
-      <button id="circulo-b" disabled class="absolute text-white bg-gradient-to-r from-blue-500 via-blue-600 to-blue-700 dark:ring-blue-800 shadow-lg shadow-[#2056df] font-semibold rounded-full text-lg px-4 py-2 text-center" style="top: 7.26px; right: 190.17px">B</button>
-      <button id="circulo-c" disabled class="absolute text-white bg-gradient-to-r from-blue-500 via-blue-600 to-blue-700 dark:ring-blue-800 shadow-lg shadow-[#2056df] font-semibold rounded-full text-lg px-4 py-2 text-center" style="top: 28.63px; right: 133.81px">C</button>
-      <button id="circulo-d" disabled class="absolute text-white bg-gradient-to-r from-blue-500 via-blue-600 to-blue-700 dark:ring-blue-800 shadow-lg shadow-[#2056df] font-semibold rounded-full text-lg px-4 py-2 text-center" style="top: 62.87px; right: 84.21px">D</button>
-      <button id="circulo-e" disabled class="absolute text-white bg-gradient-to-r from-blue-500 via-blue-600 to-blue-700 dark:ring-blue-800 shadow-lg shadow-[#2056df] font-semibold rounded-full text-lg px-4 py-2 text-center" style="top: 107.98px; right: 44.25px">E</button>
-      <button id="circulo-f" disabled class="absolute text-white bg-gradient-to-r from-blue-500 via-blue-600 to-blue-700 dark:ring-blue-800 shadow-lg shadow-[#2056df] font-semibold rounded-full text-lg px-4 py-2 text-center" style="top: 161.34px; right: 16.24px">F</button>
-      <button id="circulo-g" disabled class="absolute text-white bg-gradient-to-r from-blue-500 via-blue-600 to-blue-700 dark:ring-blue-800 shadow-lg shadow-[#2056df] font-semibold rounded-full text-lg px-4 py-2 text-center" style="top: 219.86px; right: 1.82px">G</button>
-      <button id="circulo-h" disabled class="absolute text-white bg-gradient-to-r from-blue-500 via-blue-600 to-blue-700 dark:ring-blue-800 shadow-lg shadow-[#2056df] font-semibold rounded-full text-lg px-4 py-2 text-center" style="bottom: 219.86px; right: 1.82px">H</button>
-      <button id="circulo-i" disabled class="absolute text-white bg-gradient-to-r from-blue-500 via-blue-600 to-blue-700 dark:ring-blue-800 shadow-lg shadow-[#2056df] font-semibold rounded-full text-lg px-[20px] py-2 text-center" style="bottom: 161.34px; right: 16.24px">I</button>
-      <button id="circulo-j" disabled class="absolute text-white bg-gradient-to-r from-blue-500 via-blue-600 to-blue-700 dark:ring-blue-800 shadow-lg shadow-[#2056df] font-semibold rounded-full text-lg px-4 py-2 text-center" style="bottom: 107.98px; right: 44.25px">J</button>
-      <button id="circulo-k" disabled class="absolute text-white bg-gradient-to-r from-blue-500 via-blue-600 to-blue-700 dark:ring-blue-800 shadow-lg shadow-[#2056df] font-semibold rounded-full text-lg px-4 py-2 text-center" style="bottom: 62.87px; right: 84.21px">K</button>
-      <button id="circulo-l" disabled class="absolute text-white bg-gradient-to-r from-blue-500 via-blue-600 to-blue-700 dark:ring-blue-800 shadow-lg shadow-[#2056df] font-semibold rounded-full text-lg px-4 py-2 text-center" style="bottom: 28.63px; right: 133.81px">L</button>
-      <button id="circulo-m" disabled class="absolute text-white bg-gradient-to-r from-blue-500 via-blue-600 to-blue-700 dark:ring-blue-800 shadow-lg shadow-[#2056df] font-semibold rounded-full text-lg px-4 py-2 text-center" style="bottom: 7.26px; right: 190.17px">M</button>
-      <button id="circulo-n" disabled class="absolute text-white bg-gradient-to-r from-blue-500 via-blue-600 to-blue-700 dark:ring-blue-800 shadow-lg shadow-[#2056df] font-semibold rounded-full text-lg px-4 py-2 text-center" style="bottom: 0px; left: 250px">N</button>
-      <button id="circulo-ñ" disabled class="absolute text-white bg-gradient-to-r from-blue-500 via-blue-600 to-blue-700 dark:ring-blue-800 shadow-lg shadow-[#2056df] font-semibold rounded-full text-lg px-4 py-2 text-center" style="bottom: 7.26px; left: 190.17px">Ñ</button>
-      <button id="circulo-o" disabled class="absolute text-white bg-gradient-to-r from-blue-500 via-blue-600 to-blue-700 dark:ring-blue-800 shadow-lg shadow-[#2056df] font-semibold rounded-full text-lg px-4 py-2 text-center" style="bottom: 28.63px; left: 133.81px">O</button>
-      <button id="circulo-p" disabled class="absolute text-white bg-gradient-to-r from-blue-500 via-blue-600 to-blue-700 dark:ring-blue-800 shadow-lg shadow-[#2056df] font-semibold rounded-full text-lg px-4 py-2 text-center" style="bottom: 62.87px; left: 84.21px">P</button>
-      <button id="circulo-q" disabled class="absolute text-white bg-gradient-to-r from-blue-500 via-blue-600 to-blue-700 dark:ring-blue-800 shadow-lg shadow-[#2056df] font-semibold rounded-full text-lg px-4 py-2 text-center" style="bottom: 107.98px; left: 44.25px">Q</button>
-      <button id="circulo-r" disabled class="absolute text-white bg-gradient-to-r from-blue-500 via-blue-600 to-blue-700 dark:ring-blue-800 shadow-lg shadow-[#2056df] font-semibold rounded-full text-lg px-4 py-2 text-center" style="bottom: 161.34px; left: 16.24px">R</button>
-      <button id="circulo-s" disabled class="absolute text-white bg-gradient-to-r from-blue-500 via-blue-600 to-blue-700 dark:ring-blue-800 shadow-lg shadow-[#2056df] font-semibold rounded-full text-lg px-4 py-2 text-center" style="bottom: 219.86px; left: 1.82px">S</button>
-      <button id="circulo-t" disabled class="absolute text-white bg-gradient-to-r from-blue-500 via-blue-600 to-blue-700 dark:ring-blue-800 shadow-lg shadow-[#2056df] font-semibold rounded-full text-lg px-4 py-2 text-center" style="top: 219.86px; left: 1.82px">T</button>
-      <button id="circulo-u" disabled class="absolute text-white bg-gradient-to-r from-blue-500 via-blue-600 to-blue-700 dark:ring-blue-800 shadow-lg shadow-[#2056df] font-semibold rounded-full text-lg px-4 py-2 text-center" style="top: 161.34px; left: 16.24px">U</button>
-      <button id="circulo-v" disabled class="absolute text-white bg-gradient-to-r from-blue-500 via-blue-600 to-blue-700 dark:ring-blue-800 shadow-lg shadow-[#2056df] font-semibold rounded-full text-lg px-4 py-2 text-center" style="top: 107.98px; left: 44.25px">V</button>
-      <button id="circulo-x" disabled class="absolute text-white bg-gradient-to-r from-blue-500 via-blue-600 to-blue-700 dark:ring-blue-800 shadow-lg shadow-[#2056df] font-semibold rounded-full text-lg px-4 py-2 text-center" style="top: 62.87px; left: 84.21px">X</button>
-      <button id="circulo-y" disabled class="absolute text-white bg-gradient-to-r from-blue-500 via-blue-600 to-blue-700 dark:ring-blue-800 shadow-lg shadow-[#2056df] font-semibold rounded-full text-lg px-4 py-2 text-center" style="top: 28.63px; left: 133.81px">Y</button>
-      <button id="circulo-z" disabled class="absolute text-white bg-gradient-to-r from-blue-500 via-blue-600 to-blue-700 dark:ring-blue-800 shadow-lg shadow-[#2056df] font-semibold rounded-full text-lg px-4 py-2 text-center" style="top: 7.26px; left: 190.17px">Z</button>
+      <button id="circulo-b" disabled class="absolute text-white bg-gradient-to-r from-blue-500 via-blue-600 to-blue-700 shadow-lg shadow-[#2056df] font-semibold rounded-full text-lg px-4 py-2 text-center" style="top: 7.26px; right: 190.17px">B</button>
+      <button id="circulo-c" disabled class="absolute text-white bg-gradient-to-r from-blue-500 via-blue-600 to-blue-700 shadow-lg shadow-[#2056df] font-semibold rounded-full text-lg px-4 py-2 text-center" style="top: 28.63px; right: 133.81px">C</button>
+      <button id="circulo-d" disabled class="absolute text-white bg-gradient-to-r from-blue-500 via-blue-600 to-blue-700 shadow-lg shadow-[#2056df] font-semibold rounded-full text-lg px-4 py-2 text-center" style="top: 62.87px; right: 84.21px">D</button>
+      <button id="circulo-e" disabled class="absolute text-white bg-gradient-to-r from-blue-500 via-blue-600 to-blue-700 shadow-lg shadow-[#2056df] font-semibold rounded-full text-lg px-4 py-2 text-center" style="top: 107.98px; right: 44.25px">E</button>
+      <button id="circulo-f" disabled class="absolute text-white bg-gradient-to-r from-blue-500 via-blue-600 to-blue-700 shadow-lg shadow-[#2056df] font-semibold rounded-full text-lg px-4 py-2 text-center" style="top: 161.34px; right: 16.24px">F</button>
+      <button id="circulo-g" disabled class="absolute text-white bg-gradient-to-r from-blue-500 via-blue-600 to-blue-700 shadow-lg shadow-[#2056df] font-semibold rounded-full text-lg px-4 py-2 text-center" style="top: 219.86px; right: 1.82px">G</button>
+      <button id="circulo-h" disabled class="absolute text-white bg-gradient-to-r from-blue-500 via-blue-600 to-blue-700 shadow-lg shadow-[#2056df] font-semibold rounded-full text-lg px-4 py-2 text-center" style="bottom: 219.86px; right: 1.82px">H</button>
+      <button id="circulo-i" disabled class="absolute text-white bg-gradient-to-r from-blue-500 via-blue-600 to-blue-700 shadow-lg shadow-[#2056df] font-semibold rounded-full text-lg px-[20px] py-2 text-center" style="bottom: 161.34px; right: 16.24px">I</button>
+      <button id="circulo-j" disabled class="absolute text-white bg-gradient-to-r from-blue-500 via-blue-600 to-blue-700 shadow-lg shadow-[#2056df] font-semibold rounded-full text-lg px-4 py-2 text-center" style="bottom: 107.98px; right: 44.25px">J</button>
+      <button id="circulo-k" disabled class="absolute text-white bg-gradient-to-r from-blue-500 via-blue-600 to-blue-700 shadow-lg shadow-[#2056df] font-semibold rounded-full text-lg px-4 py-2 text-center" style="bottom: 62.87px; right: 84.21px">K</button>
+      <button id="circulo-l" disabled class="absolute text-white bg-gradient-to-r from-blue-500 via-blue-600 to-blue-700 shadow-lg shadow-[#2056df] font-semibold rounded-full text-lg px-4 py-2 text-center" style="bottom: 28.63px; right: 133.81px">L</button>
+      <button id="circulo-m" disabled class="absolute text-white bg-gradient-to-r from-blue-500 via-blue-600 to-blue-700 shadow-lg shadow-[#2056df] font-semibold rounded-full text-lg px-4 py-2 text-center" style="bottom: 7.26px; right: 190.17px">M</button>
+      <button id="circulo-n" disabled class="absolute text-white bg-gradient-to-r from-blue-500 via-blue-600 to-blue-700 shadow-lg shadow-[#2056df] font-semibold rounded-full text-lg px-4 py-2 text-center" style="bottom: 0px; left: 250px">N</button>
+      <button id="circulo-ñ" disabled class="absolute text-white bg-gradient-to-r from-blue-500 via-blue-600 to-blue-700 shadow-lg shadow-[#2056df] font-semibold rounded-full text-lg px-4 py-2 text-center" style="bottom: 7.26px; left: 190.17px">Ñ</button>
+      <button id="circulo-o" disabled class="absolute text-white bg-gradient-to-r from-blue-500 via-blue-600 to-blue-700 shadow-lg shadow-[#2056df] font-semibold rounded-full text-lg px-4 py-2 text-center" style="bottom: 28.63px; left: 133.81px">O</button>
+      <button id="circulo-p" disabled class="absolute text-white bg-gradient-to-r from-blue-500 via-blue-600 to-blue-700 shadow-lg shadow-[#2056df] font-semibold rounded-full text-lg px-4 py-2 text-center" style="bottom: 62.87px; left: 84.21px">P</button>
+      <button id="circulo-q" disabled class="absolute text-white bg-gradient-to-r from-blue-500 via-blue-600 to-blue-700 shadow-lg shadow-[#2056df] font-semibold rounded-full text-lg px-4 py-2 text-center" style="bottom: 107.98px; left: 44.25px">Q</button>
+      <button id="circulo-r" disabled class="absolute text-white bg-gradient-to-r from-blue-500 via-blue-600 to-blue-700 shadow-lg shadow-[#2056df] font-semibold rounded-full text-lg px-4 py-2 text-center" style="bottom: 161.34px; left: 16.24px">R</button>
+      <button id="circulo-s" disabled class="absolute text-white bg-gradient-to-r from-blue-500 via-blue-600 to-blue-700 shadow-lg shadow-[#2056df] font-semibold rounded-full text-lg px-4 py-2 text-center" style="bottom: 219.86px; left: 1.82px">S</button>
+      <button id="circulo-t" disabled class="absolute text-white bg-gradient-to-r from-blue-500 via-blue-600 to-blue-700 shadow-lg shadow-[#2056df] font-semibold rounded-full text-lg px-4 py-2 text-center" style="top: 219.86px; left: 1.82px">T</button>
+      <button id="circulo-u" disabled class="absolute text-white bg-gradient-to-r from-blue-500 via-blue-600 to-blue-700 shadow-lg shadow-[#2056df] font-semibold rounded-full text-lg px-4 py-2 text-center" style="top: 161.34px; left: 16.24px">U</button>
+      <button id="circulo-v" disabled class="absolute text-white bg-gradient-to-r from-blue-500 via-blue-600 to-blue-700 shadow-lg shadow-[#2056df] font-semibold rounded-full text-lg px-4 py-2 text-center" style="top: 107.98px; left: 44.25px">V</button>
+      <button id="circulo-x" disabled class="absolute text-white bg-gradient-to-r from-blue-500 via-blue-600 to-blue-700 shadow-lg shadow-[#2056df] font-semibold rounded-full text-lg px-4 py-2 text-center" style="top: 62.87px; left: 84.21px">X</button>
+      <button id="circulo-y" disabled class="absolute text-white bg-gradient-to-r from-blue-500 via-blue-600 to-blue-700 shadow-lg shadow-[#2056df] font-semibold rounded-full text-lg px-4 py-2 text-center" style="top: 28.63px; left: 133.81px">Y</button>
+      <button id="circulo-z" disabled class="absolute text-white bg-gradient-to-r from-blue-500 via-blue-600 to-blue-700 shadow-lg shadow-[#2056df] font-semibold rounded-full text-lg px-4 py-2 text-center" style="top: 7.26px; left: 190.17px">Z</button>
     `;
     divRosco.innerHTML = rosco;
   }
@@ -70,6 +70,15 @@ class Rosco{
     document.getElementById(`circulo-${letra}`).classList.add("from-red-500", "via-red-600", "to-red-700", "focus:ring-red-300", "shadow-[#c92020]");
     document.getElementById(`circulo-${letra}`).classList.remove("from-blue-500", "via-blue-600", "to-blue-700", "focus:ring-blue-300", "shadow-[#2056df]");
   };
+
+  setFocus(letra){
+    document.getElementById(`circulo-${letra}`).classList.add("ring-4", "ring-fuchsia-400", "dark:ring-fuchsia-400");
+    // document.getElementById(`circulo-${letra}`).classList.remove("ring-4", "ring-fuchsia-400", "dark:ring-fuchsia-400");
+  }
+
+  lostFocus(letra){
+    document.getElementById(`circulo-${letra}`).classList.remove("ring-4", "ring-fuchsia-400", "dark:ring-fuchsia-400");
+  }
 
   saltaPalabra(){
     (this.punteroLetra == this.letrasRestantes.length - 1)? this.punteroLetra = 0 : this.punteroLetra++;
@@ -238,9 +247,11 @@ function siguiente(checked){
       rosco1.removerDeLetrasRestantes(rosco1.punteroLetra);
       rosco1.punteroLetra = 0;
       try{
+        rosco1.lostFocus(letra);
         letra = rosco1.letrasRestantes.at(rosco1.punteroLetra);
-        console.log("letra es: ", letra)
-        parrafoPista.innerText = rosco1.setPalabras[letra].pista
+        rosco1.setFocus(letra);
+        console.log("letra es: ", letra);
+        parrafoPista.innerText = rosco1.setPalabras[letra].pista;
         parrafoDefinicion.innerText = rosco1.setPalabras[letra].definicion;
         inputRespuesta.value = "";
         console.log("checked es: ", checked);
@@ -252,7 +263,9 @@ function siguiente(checked){
     }
     else {
       rosco1.removerDeLetrasRestantes(rosco1.punteroLetra);
+      rosco1.lostFocus(letra);
       letra = rosco1.letrasRestantes.at(rosco1.punteroLetra);
+      rosco1.setFocus(letra);
       console.log("letra es: ", letra)
       parrafoPista.innerText = rosco1.setPalabras[letra].pista
       parrafoDefinicion.innerText = rosco1.setPalabras[letra].definicion;
@@ -262,7 +275,9 @@ function siguiente(checked){
     }
   }
   else{
+    rosco1.lostFocus(letra);
     letra = rosco1.saltaPalabra();
+    rosco1.setFocus(letra);
     console.log("letra es: ", letra)
     parrafoPista.innerText = rosco1.setPalabras[letra].pista
     parrafoDefinicion.innerText = rosco1.setPalabras[letra].definicion;
