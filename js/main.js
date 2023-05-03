@@ -166,7 +166,6 @@ async function nuevoJugador() {
     localStorage.setItem("jugadorRosco", JSON.stringify({nombre: jugador1, marcador: marcador1}));
     hide("menu");
     Swal.fire({
-      // toast: true,
       title: "Preparate...",
       showConfirmButton: false,
       timer: 3000,
