@@ -19,8 +19,10 @@ class Diccionario{
 class Rosco{
   constructor(setPalabras){
     this.setPalabras = setPalabras;
+    this.punteroLetra = 0;
     this.punteroLetraActual = 0;
     this.punteroLetraSiguiente = 1;
+    this.punteroLetraAnterior = 25;
     this.letrasRestantes = Object.keys(setPalabras);
     this.isActive = false;
   }
@@ -70,16 +72,12 @@ class Rosco{
   };
 
   saltaPalabra(){
-    (this.punteroLetraActual == this.letrasRestantes.length - 1)? this.punteroLetraActual = 0 : this.punteroLetraActual++;
-    (this.punteroLetraSiguiente == this.letrasRestantes.length - 1)? this.punteroLetraSiguiente = 0 : this.punteroLetraSiguiente++;
-    console.log("letras restantes: ", this.letrasRestantes);
-    return this.letrasRestantes.at(this.punteroLetraActual);
+    (this.punteroLetra == this.letrasRestantes.length - 1)? this.punteroLetra = 0 : this.punteroLetra++;
+    return this.letrasRestantes.at(this.punteroLetra);
   }
 
-  removerDeLetrasRestantes(letraARemover){
-    // this.letrasRestantes.findIndex((letra) => letra == letraARemover).then((result) => console.log(result));
-    const indiceLetra = this.letrasRestantes.findIndex((letra) => letra == letraARemover);
-    this.letrasRestantes.splice(indiceLetra, 1);
+  removerDeLetrasRestantes(indexLetraARemover){
+    this.letrasRestantes.splice(indexLetraARemover, 1);
   }
 };
 
@@ -230,14 +228,48 @@ function check(){
     marcador1.incorrectas++;
     rosco1.setRojo(letra);
   }
-  siguiente();
+
+  siguiente(true);
 }
 
-function siguiente(){
-  letra = rosco1.saltaPalabra();
-  parrafoPista.innerText = rosco1.setPalabras[letra].pista
-  parrafoDefinicion.innerText = rosco1.setPalabras[letra].definicion;
-  inputRespuesta.value = "";
+function siguiente(checked){
+  if (checked){
+    if(rosco1.punteroLetra == rosco1.letrasRestantes.length - 1){
+      rosco1.removerDeLetrasRestantes(rosco1.punteroLetra);
+      rosco1.punteroLetra = 0;
+      try{
+        letra = rosco1.letrasRestantes.at(rosco1.punteroLetra);
+        console.log("letra es: ", letra)
+        parrafoPista.innerText = rosco1.setPalabras[letra].pista
+        parrafoDefinicion.innerText = rosco1.setPalabras[letra].definicion;
+        inputRespuesta.value = "";
+        console.log("checked es: ", checked);
+        console.log("letras restantes (siguiente): ", rosco1.letrasRestantes);
+      }catch (e){
+        console.log(e);
+        finalizarJuego();
+      }
+    }
+    else {
+      rosco1.removerDeLetrasRestantes(rosco1.punteroLetra);
+      letra = rosco1.letrasRestantes.at(rosco1.punteroLetra);
+      console.log("letra es: ", letra)
+      parrafoPista.innerText = rosco1.setPalabras[letra].pista
+      parrafoDefinicion.innerText = rosco1.setPalabras[letra].definicion;
+      inputRespuesta.value = "";
+      console.log("checked es: ", checked);
+      console.log("letras restantes (siguiente): ", rosco1.letrasRestantes);
+    }
+  }
+  else{
+    letra = rosco1.saltaPalabra();
+    console.log("letra es: ", letra)
+    parrafoPista.innerText = rosco1.setPalabras[letra].pista
+    parrafoDefinicion.innerText = rosco1.setPalabras[letra].definicion;
+    inputRespuesta.value = "";
+    console.log("checked es: ", checked);
+    console.log("letras restantes (siguiente): ", rosco1.letrasRestantes);
+  }
 }
 
 async function getDict(){
