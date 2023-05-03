@@ -88,6 +88,60 @@ class Rosco{
   }
 };
 
+class Reloj{
+  constructor(segundos){
+    this.segundos = segundos;
+    this.id = "";
+    this.isActive = true;
+    this.isRunning = false;
+    this.isPaused = false;
+  }
+
+  inicia (){
+    if (this.isActive){
+      this.isRunning = true;
+      this.isPaused = false;
+      this.id = setInterval(() => {
+        console.log(this.segundos--);
+        if(!this.segundos){
+          this.finaliza();
+          // clearInterval(this.id);
+          // this.isRunning = false;
+          // this.isActive = false;
+        }
+      }, 1000);
+    }
+    else{
+      console.error("El reloj está desactivado");
+    }
+  }
+
+  pausa (){
+    if (this.isActive){
+      if (this.isRunning){
+        clearInterval(this.id);
+        this.isPaused = true;
+      }
+      else{
+        console.error("El reloj ya está pausado.");
+      
+      }
+    }
+    else{
+      console.error("El reloj está desactivado.");
+    }
+  }
+
+  finaliza(){
+    clearInterval(this.id);
+    this.segundos = 0;
+    this.isRunning = false;
+    this.isPaused = false;
+    this.isActive = false;
+    const evento = new CustomEvent("finalizoTimer");
+    document.dispatchEvent(evento);
+  }
+}
 // FUNCIONES UTILES
 
 function show(element){
@@ -348,6 +402,9 @@ async function crearJuego(){
   rosco1.isActive = true;
   parrafoPista.innerText = rosco1.setPalabras[letra].pista
   parrafoDefinicion.innerText = rosco1.setPalabras[letra].definicion;
+  document.addEventListener("finalizoTimer", (evento) => {
+    console.log("Terminó el timer", evento);
+  });
 }
 
 function reiniciarJuego(){
@@ -402,7 +459,11 @@ let saludoJugador = document.getElementById("saludo-jugador");
 let juego = document.getElementById("menu-juego");
 
 crearJuego();
+timer1 = new Reloj(5);
 
+// document.addEventListener("finalizoTimer", (evento) => {
+//   console.log("Terminó el timer", evento);
+// })
 
 function prueba(){
   // función para probar cosas
