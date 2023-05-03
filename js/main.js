@@ -20,14 +20,13 @@ class Rosco{
   constructor(setPalabras){
     this.setPalabras = setPalabras;
     this.punteroLetra = 0;
-    this.punteroLetraActual = 0;
-    this.punteroLetraSiguiente = 1;
-    this.punteroLetraAnterior = 25;
+    // this.punteroLetraActual = 0;
+    // this.punteroLetraSiguiente = 1;
+    // this.punteroLetraAnterior = 25;
     this.letrasRestantes = Object.keys(setPalabras);
     this.isActive = false;
   }
   
-
   render(){
     let divRosco = document.getElementById("rosco");
     let rosco = `
@@ -196,9 +195,16 @@ function finalizarJuego(){
   let nuevoTop10 = [...top10FromLocalStorage, {nombre: jugador1, marcador: marcador1}];
   localStorage.setItem("top10Rosco", JSON.stringify(nuevoTop10));
   // mostrar resultado del juego
+  let listadoPalabrasSinResponder = "";
+  for (letra of rosco1.letrasRestantes){
+    listadoPalabrasSinResponder += `<li>${letra}: ${rosco1.setPalabras[letra].palabra}</li>`;
+  }
   Swal.fire({
     title: 'Tu rosco ha terminado',
     text: `Has obtenido ${marcador1.correctas} puntos`,
+    html:`
+      <h3 class="bg-indigo-500 text-white text-xl font-bold mb-3 rounded-full">Has obtenido ${marcador1.correctas} puntos</h3>
+      <ul class="list-disc">${listadoPalabrasSinResponder}</ul>`,
     showClass: {
       popup: 'animate__animated animate__tada'
     },
