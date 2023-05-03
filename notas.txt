@@ -1,8 +1,22 @@
 circulos del rosco:
 
+Se generó un cuarto de circunsferencia, aplicando una trasformación de coordenadas polares a coordenadas cartesianas, 
+teniendo en cuenta que el origen de coordenadas en la pantalla se encuentra arriba (top) y a la izquierda (left). 
+Luego, Tailwind dispone de dos referencias adicionales, (bottom y right). Por lo que en base a ellas se replican 
+las coordenadas del cuarto de circunsferencia.
+
+
     <button type="button" disabled class="text-white bg-gradient-to-r from-blue-500 via-blue-600 to-blue-700 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:ring-blue-800 shadow-lg shadow-neutral-500/50 dark:shadow-lg dark:shadow-neutral-800/80 font-semibold rounded-full text-lg px-4 py-2 text-center mr-2 mb-2 ">A</button>
     <button type="button" disabled class="text-white bg-gradient-to-r from-blue-500 via-blue-600 to-blue-700 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:ring-blue-800 shadow-lg shadow-neutral-500/50 dark:shadow-lg dark:shadow-neutral-800/80 font-semibold rounded-full text-lg px-4 py-2 text-center mr-2 mb-2 ">B</button>
     <button type="button" disabled class="text-white bg-gradient-to-r from-blue-500 via-blue-600 to-blue-700 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:ring-blue-800 shadow-lg shadow-neutral-500/50 dark:shadow-lg dark:shadow-neutral-800/80 font-semibold rounded-full text-lg px-4 py-2 text-center mr-2 mb-2 ">C</button>
     <button type="button" disabled class="text-white bg-gradient-to-r from-blue-500 via-blue-600 to-blue-700 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:ring-blue-800 shadow-lg shadow-neutral-500/50 dark:shadow-lg dark:shadow-neutral-800/80 font-semibold rounded-full text-lg px-4 py-2 text-center mr-2 mb-2 ">D</button>
     <button type="button" disabled class="text-white bg-gradient-to-r from-green-500 via-green-600 to-green-700 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:ring-blue-800 shadow-lg shadow-neutral-500/50 dark:shadow-lg dark:shadow-neutral-800/80 font-semibold rounded-full text-lg px-4 py-2 text-center mr-2 mb-2 ">A</button>
     <button type="button" disabled class="text-white bg-gradient-to-r from-red-500 via-red-600 to-red-700 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:ring-blue-800 shadow-lg shadow-neutral-500/50 dark:shadow-lg dark:shadow-neutral-800/80 font-semibold rounded-full text-lg px-4 py-2 text-center mr-2 mb-2 ">A</button>
+
+Sobre el diccionario de palabraas:
+
+Primeramente se obtenía la información desde un objeto de JavaScript, colocado en un archivo .js aparte llamado 
+diccionario.js.
+Posteriormente se lo convirtió en un archivo .json para obtenerlo utilizando fetch.
+Actualmente se está tomando desde un JSON en una API.
+
