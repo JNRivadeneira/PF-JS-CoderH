@@ -238,12 +238,16 @@ async function nuevoJugador() {
       timerProgressBar: true,
       willClose: () => {
         show("juego");
+        timer1.inicia();
       },
     })
   }
 }
 
 function finalizarJuego(){
+  // document.removeEventListener("finalizoTimer", () => timer1.finaliza());
+  document.removeEventListener("finalizoTimer", gestionarFinTimer);
+  timer1.finaliza();
   let top10FromLocalStorage = JSON.parse(localStorage.getItem("top10Rosco")) || [];
   // guardar marcador jugador
   let nuevoTop10 = [...top10FromLocalStorage, {nombre: jugador1, marcador: marcador1}];
@@ -400,11 +404,10 @@ async function crearJuego(){
   rosco1 = new Rosco(set1);
   rosco1.render();
   rosco1.isActive = true;
+  timer1 = new Reloj(120);
   parrafoPista.innerText = rosco1.setPalabras[letra].pista
   parrafoDefinicion.innerText = rosco1.setPalabras[letra].definicion;
-  document.addEventListener("finalizoTimer", (evento) => {
-    console.log("Terminó el timer", evento);
-  });
+  document.addEventListener("finalizoTimer", gestionarFinTimer);
 }
 
 function reiniciarJuego(){
@@ -419,6 +422,11 @@ function reiniciarJuego(){
   };
   letra = "a";
   inputRespuesta.value = "";
+}
+
+function gestionarFinTimer(evento){
+  console.log("Terminó el timer", evento);
+  finalizarJuego();
 }
 
 // creacion de la partida - Variables globales
@@ -450,6 +458,7 @@ let marcador1 = {
   incorrectas: 0
 };
 let letra = "a";
+let timer1;
 
 let parrafoPista = document.getElementById("parrafo-pista");
 let parrafoDefinicion = document.getElementById("parrafo-definicion");
@@ -459,7 +468,6 @@ let saludoJugador = document.getElementById("saludo-jugador");
 let juego = document.getElementById("menu-juego");
 
 crearJuego();
-timer1 = new Reloj(5);
 
 // document.addEventListener("finalizoTimer", (evento) => {
 //   console.log("Terminó el timer", evento);
