@@ -73,7 +73,6 @@ class Rosco{
 
   setFocus(letra){
     document.getElementById(`circulo-${letra}`).classList.add("ring-4", "ring-fuchsia-400", "dark:ring-fuchsia-400");
-    // document.getElementById(`circulo-${letra}`).classList.remove("ring-4", "ring-fuchsia-400", "dark:ring-fuchsia-400");
   }
 
   lostFocus(letra){
@@ -230,19 +229,41 @@ function ordenaTop10(top10){
 function check(){
   // valida la respuesta del jugador y suma sus puntos
   if (rosco1.setPalabras[letra].palabra.includes(inputRespuesta.value.toLowerCase())){
-    marcador1.correctas++;
-    rosco1.setVerde(letra);
+    Swal.fire({
+      icon: 'success',
+      title: 'Bravo!',
+      showConfirmButton: false,
+      timer: 1000,
+      willClose: () => {
+        marcador1.correctas++;
+        rosco1.setVerde(letra);
+        siguiente(true);
+      }
+    })
   }
   else {
-    marcador1.incorrectas++;
-    rosco1.setRojo(letra);
+    Swal.fire({
+      icon: 'error',
+      title: 'Ups...',
+      html: `La respuesta era <strong>${rosco1.setPalabras[letra].palabra}</strong>`,
+      showConfirmButton: false,
+      timer: 2000,
+      willClose: () => {
+        marcador1.incorrectas++;
+        rosco1.setRojo(letra);
+        siguiente(true);
+      }
+    })
+    // marcador1.incorrectas++;
+    // rosco1.setRojo(letra);
   }
 
-  siguiente(true);
+  // siguiente(true);
 }
 
 function siguiente(checked){
   if (checked){
+    // si estamos posicionados en la última letra
     if(rosco1.punteroLetra == rosco1.letrasRestantes.length - 1){
       rosco1.removerDeLetrasRestantes(rosco1.punteroLetra);
       rosco1.punteroLetra = 0;
@@ -250,14 +271,14 @@ function siguiente(checked){
         rosco1.lostFocus(letra);
         letra = rosco1.letrasRestantes.at(rosco1.punteroLetra);
         rosco1.setFocus(letra);
-        console.log("letra es: ", letra);
+        // console.log("letra es: ", letra);
         parrafoPista.innerText = rosco1.setPalabras[letra].pista;
         parrafoDefinicion.innerText = rosco1.setPalabras[letra].definicion;
         inputRespuesta.value = "";
-        console.log("checked es: ", checked);
-        console.log("letras restantes (siguiente): ", rosco1.letrasRestantes);
+        // console.log("checked es: ", checked);
+        // console.log("letras restantes (siguiente): ", rosco1.letrasRestantes);
       }catch (e){
-        console.log(e);
+        // console.log(e);
         finalizarJuego();
       }
     }
@@ -266,24 +287,24 @@ function siguiente(checked){
       rosco1.lostFocus(letra);
       letra = rosco1.letrasRestantes.at(rosco1.punteroLetra);
       rosco1.setFocus(letra);
-      console.log("letra es: ", letra)
+      // console.log("letra es: ", letra)
       parrafoPista.innerText = rosco1.setPalabras[letra].pista
       parrafoDefinicion.innerText = rosco1.setPalabras[letra].definicion;
       inputRespuesta.value = "";
-      console.log("checked es: ", checked);
-      console.log("letras restantes (siguiente): ", rosco1.letrasRestantes);
+      // console.log("checked es: ", checked);
+      // console.log("letras restantes (siguiente): ", rosco1.letrasRestantes);
     }
   }
   else{
     rosco1.lostFocus(letra);
     letra = rosco1.saltaPalabra();
     rosco1.setFocus(letra);
-    console.log("letra es: ", letra)
+    // console.log("letra es: ", letra)
     parrafoPista.innerText = rosco1.setPalabras[letra].pista
     parrafoDefinicion.innerText = rosco1.setPalabras[letra].definicion;
     inputRespuesta.value = "";
-    console.log("checked es: ", checked);
-    console.log("letras restantes (siguiente): ", rosco1.letrasRestantes);
+    // console.log("checked es: ", checked);
+    // console.log("letras restantes (siguiente): ", rosco1.letrasRestantes);
   }
 }
 
