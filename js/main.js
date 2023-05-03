@@ -201,6 +201,7 @@ function check(){
     marcador1.incorrectas++;
     rosco1.setRojo(letra);
   }
+  siguiente();
 }
 
 function siguiente(){
