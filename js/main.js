@@ -174,6 +174,17 @@ function finalizarJuego(){
   // guardar marcador jugador
   let nuevoTop10 = [...top10FromLocalStorage, {nombre: jugador1, marcador: marcador1}];
   localStorage.setItem("top10Rosco", JSON.stringify(nuevoTop10));
+  // mostrar resultado del juego
+  Swal.fire({
+    title: 'Tu rosco ha terminado',
+    text: `Has obtenido ${marcador1.correctas} puntos`,
+    showClass: {
+      popup: 'animate__animated animate__tada'
+    },
+    hideClass: {
+      popup: 'animate__animated animate__fadeOutUp'
+    }
+  })
   hide("juego");
   show("top10");
   show("menu");
