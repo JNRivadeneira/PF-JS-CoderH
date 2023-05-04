@@ -11,7 +11,6 @@ class Diccionario{
       // toma elementos aleatorios.
       set[letra] = this.palabrasArray[letra][parseInt(Math.random()*this.palabrasArray[letra].length)];
     }
-    // console.log(set);
     return set;
   }
 }
@@ -20,9 +19,6 @@ class Rosco{
   constructor(setPalabras){
     this.setPalabras = setPalabras;
     this.punteroLetra = 0;
-    // this.punteroLetraActual = 0;
-    // this.punteroLetraSiguiente = 1;
-    // this.punteroLetraAnterior = 25;
     this.letrasRestantes = Object.keys(setPalabras);
     this.isActive = false;
   }
@@ -102,12 +98,9 @@ class Reloj{
       this.isRunning = true;
       this.isPaused = false;
       this.id = setInterval(() => {
-        console.log(this.segundos--);
+        botonFinalizarJuego.innerText = --this.segundos;
         if(!this.segundos){
           this.finaliza();
-          // clearInterval(this.id);
-          // this.isRunning = false;
-          // this.isActive = false;
         }
       }, 1000);
     }
@@ -408,6 +401,7 @@ async function crearJuego(){
   parrafoPista.innerText = rosco1.setPalabras[letra].pista
   parrafoDefinicion.innerText = rosco1.setPalabras[letra].definicion;
   document.addEventListener("finalizoTimer", gestionarFinTimer);
+  inputRespuesta.addEventListener("keyup", gestionarEnterKey);
 }
 
 function reiniciarJuego(){
@@ -427,6 +421,12 @@ function reiniciarJuego(){
 function gestionarFinTimer(evento){
   console.log("Terminó el timer", evento);
   finalizarJuego();
+}
+
+function gestionarEnterKey(evento){
+  if (evento.keyCode === 13){
+    check();
+  }
 }
 
 // creacion de la partida - Variables globales
@@ -464,6 +464,7 @@ let parrafoPista = document.getElementById("parrafo-pista");
 let parrafoDefinicion = document.getElementById("parrafo-definicion");
 let inputRespuesta = document.getElementById("input-respuesta");
 let botonSiguiente = document.getElementById("boton-siguiente");
+let botonFinalizarJuego = document.getElementById("boton-fin-juego");
 let saludoJugador = document.getElementById("saludo-jugador");
 let juego = document.getElementById("menu-juego");
 
