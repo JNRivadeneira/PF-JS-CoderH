@@ -311,16 +311,12 @@ function check(){
         siguiente(true);
       }
     })
-    // marcador1.incorrectas++;
-    // rosco1.setRojo(letra);
   }
-
-  // siguiente(true);
 }
 
 function siguiente(checked){
   if (checked){
-    // si estamos posicionados en la última letra
+    // si estoy posicionados en la última letra
     if(rosco1.punteroLetra == rosco1.letrasRestantes.length - 1){
       rosco1.removerDeLetrasRestantes(rosco1.punteroLetra);
       rosco1.punteroLetra = 0;
@@ -328,14 +324,10 @@ function siguiente(checked){
         rosco1.lostFocus(letra);
         letra = rosco1.letrasRestantes.at(rosco1.punteroLetra);
         rosco1.setFocus(letra);
-        // console.log("letra es: ", letra);
         parrafoPista.innerText = rosco1.setPalabras[letra].pista;
         parrafoDefinicion.innerText = rosco1.setPalabras[letra].definicion;
         inputRespuesta.value = "";
-        // console.log("checked es: ", checked);
-        // console.log("letras restantes (siguiente): ", rosco1.letrasRestantes);
       }catch (e){
-        // console.log(e);
         finalizarJuego();
       }
     }
@@ -344,25 +336,20 @@ function siguiente(checked){
       rosco1.lostFocus(letra);
       letra = rosco1.letrasRestantes.at(rosco1.punteroLetra);
       rosco1.setFocus(letra);
-      // console.log("letra es: ", letra)
       parrafoPista.innerText = rosco1.setPalabras[letra].pista
       parrafoDefinicion.innerText = rosco1.setPalabras[letra].definicion;
       inputRespuesta.value = "";
-      // console.log("checked es: ", checked);
-      // console.log("letras restantes (siguiente): ", rosco1.letrasRestantes);
     }
   }
   else{
     rosco1.lostFocus(letra);
     letra = rosco1.saltaPalabra();
     rosco1.setFocus(letra);
-    // console.log("letra es: ", letra)
     parrafoPista.innerText = rosco1.setPalabras[letra].pista
     parrafoDefinicion.innerText = rosco1.setPalabras[letra].definicion;
     inputRespuesta.value = "";
-    // console.log("checked es: ", checked);
-    // console.log("letras restantes (siguiente): ", rosco1.letrasRestantes);
   }
+  inputRespuesta.focus();
 }
 
 async function getDict(){
@@ -377,7 +364,6 @@ async function getDict(){
     }
   );
   try {
-    // const URLJSON = "../data/diccionario.json";
     const response = await fetch(request);
     const diccionario = await response.json();
     return diccionario;
@@ -388,11 +374,8 @@ async function getDict(){
 
 async function crearJuego(){
   let diccionarioDelJuego = await getDict();
-  // console.log("Diccionario del juego: ", diccionarioDelJuego);
   diccionario1 = new Diccionario(diccionarioDelJuego);
-  // console.log(typeof(diccionario1));
   set1 = diccionario1.getSet();
-  // console.log(set1);
   let keys = Object.keys(set1);
   rosco1 = new Rosco(set1);
   rosco1.render();
@@ -402,6 +385,7 @@ async function crearJuego(){
   parrafoDefinicion.innerText = rosco1.setPalabras[letra].definicion;
   document.addEventListener("finalizoTimer", gestionarFinTimer);
   inputRespuesta.addEventListener("keyup", gestionarEnterKey);
+  inputRespuesta.focus();
 }
 
 function reiniciarJuego(){
@@ -419,7 +403,6 @@ function reiniciarJuego(){
 }
 
 function gestionarFinTimer(evento){
-  console.log("Terminó el timer", evento);
   finalizarJuego();
 }
 
@@ -427,9 +410,12 @@ function gestionarEnterKey(evento){
   if (evento.keyCode === 13){
     check();
   }
+  if (evento.keyCode === 32){
+    siguiente(false);
+  }
 }
 
-// creacion de la partida - Variables globales
+// Creación de la partida - Variables globales
 let top10Mock = [
   {
     nombre: "Sutano",
@@ -469,12 +455,3 @@ let saludoJugador = document.getElementById("saludo-jugador");
 let juego = document.getElementById("menu-juego");
 
 crearJuego();
-
-// document.addEventListener("finalizoTimer", (evento) => {
-//   console.log("Terminó el timer", evento);
-// })
-
-function prueba(){
-  // función para probar cosas
-  console.log(rosco1.saltaPalabra());
-}
