@@ -380,7 +380,7 @@ async function crearJuego(){
   rosco1 = new Rosco(set1);
   rosco1.render();
   rosco1.isActive = true;
-  timer1 = new Reloj(120);
+  timer1 = new Reloj(300);
   parrafoPista.innerText = rosco1.setPalabras[letra].pista
   parrafoDefinicion.innerText = rosco1.setPalabras[letra].definicion;
   document.addEventListener("finalizoTimer", gestionarFinTimer);
